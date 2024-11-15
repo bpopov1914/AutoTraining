@@ -1,3 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using AutoTrainingConsoleApp;
 
-Console.WriteLine("Hello, World!");
+//Lecture 2 Homework
+var lecture2Homework = new Lecture2Homework();
+Lecture2Homework.PrintTheSumOfTwoNumbers();
