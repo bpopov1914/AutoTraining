@@ -1,6 +1,6 @@
 namespace AutoTrainingConsoleApp;
 
-public class Lecture2Homework
+public class Lecture2HomeworkTask1
 {
     //Task 1: Convert and Add Two Numbers
     
@@ -15,7 +15,7 @@ public class Lecture2Homework
     public static void PrintTheSumOfTwoNumbers()
     {
         //Prompt the user to input two numbers
-        Console.WriteLine("Hello, for this exercise, please enter two numbers.");
+        Console.WriteLine("Hello, for the Task 1 exercise, please enter two numbers.");
         Console.WriteLine("Please enter the first number:");
         firstNumInput = Console.ReadLine();
         Console.WriteLine("Please enter the second number:");
