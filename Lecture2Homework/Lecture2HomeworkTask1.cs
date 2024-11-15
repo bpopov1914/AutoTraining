@@ -12,9 +12,8 @@ public class Lecture2HomeworkTask1
     static int sum = 0;
     static bool firstNumCanBeParsed = false;
     static bool secondNumCanBeParsed = false;
-    
-    //Method to print the sum of the two numbers.
-    public static void PrintTheSumOfTwoNumbers()
+    //Prompt the user to input numbers
+    public static void InputNumbers()
     {
         //Prompt the user to input two numbers
         Console.WriteLine("Hello, for the Task 1 exercise, please enter two numbers.");
@@ -22,7 +21,10 @@ public class Lecture2HomeworkTask1
         firstNumInput = Console.ReadLine();
         Console.WriteLine("Please enter the second number:");
         secondNumInput = Console.ReadLine();
-        
+    }
+    //Print the sum of the two numbers.
+    public static void PrintSum()
+    {
         //Check if input can be parsed to int
         firstNumCanBeParsed = int.TryParse(firstNumInput, out firstNum);
         Console.WriteLine("First number can be parsed: " + firstNumCanBeParsed);
