@@ -16,5 +16,6 @@ public class Lecture2HomeworkTask3
         shortString = longString.Substring(18,5).ToUpper();
         //Print the substering
         Console.WriteLine($"Task 3: The extracted substring is: {shortString}");
+        Console.WriteLine("-------------End of Task 3-------------");
     }
 }

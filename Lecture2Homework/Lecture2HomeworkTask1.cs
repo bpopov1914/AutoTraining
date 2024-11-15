@@ -16,7 +16,7 @@ public class Lecture2HomeworkTask1
     public static void InputNumbers()
     {
         //Prompt the user to input two numbers
-        Console.WriteLine("Hello, for the Task 1 exercise, please enter two numbers.");
+        Console.WriteLine("Task 1: Hello, for this exercise, please enter two numbers.");
         Console.WriteLine("Please enter the first number:");
         firstNumInput = Console.ReadLine();
         Console.WriteLine("Please enter the second number:");
@@ -47,6 +47,7 @@ public class Lecture2HomeworkTask1
         {
             Console.WriteLine("One or both of the two numbers is invalid.");
         }
+        Console.WriteLine("-------------End of Task 1-------------");
     }
     
 }
