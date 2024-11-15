@@ -9,6 +9,7 @@ public class Lecture2Homework
     private static string secondNumInput = "";
     static int firstNum = 0;
     static int secondNum = 0;
+    static int sum = 0;
     
     //Method to print the sum of the two numbers.
     public static void PrintTheSumOfTwoNumbers()
@@ -28,8 +29,19 @@ public class Lecture2Homework
 
         if (firstNumCanBeParsed && secondNumCanBeParsed)
         {
+            //Parse the nums
+            firstNum = int.Parse(firstNumInput);
+            secondNum = int.Parse(secondNumInput);
+            
+            //Add the two nums
+            sum = firstNum + secondNum;
+            
             //Print the sum of the two numbers.
-            Console.WriteLine("The sum of the two numbers is: " + firstNum + secondNum);
+            Console.WriteLine("The sum of the two numbers is: " + sum);
+        }
+        else
+        {
+            Console.WriteLine("One or both of the two numbers is invalid.");
         }
     }
     
