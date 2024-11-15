@@ -10,6 +10,8 @@ public class Lecture2HomeworkTask1
     static int firstNum = 0;
     static int secondNum = 0;
     static int sum = 0;
+    static bool firstNumCanBeParsed = false;
+    static bool secondNumCanBeParsed = false;
     
     //Method to print the sum of the two numbers.
     public static void PrintTheSumOfTwoNumbers()
@@ -22,10 +24,10 @@ public class Lecture2HomeworkTask1
         secondNumInput = Console.ReadLine();
         
         //Check if input can be parsed to int
-        bool firstNumCanBeParsed = int.TryParse(firstNumInput, out firstNum);
-        Console.WriteLine(firstNumCanBeParsed);
-        bool secondNumCanBeParsed = int.TryParse(secondNumInput, out secondNum);
-        Console.WriteLine(secondNumCanBeParsed);
+        firstNumCanBeParsed = int.TryParse(firstNumInput, out firstNum);
+        Console.WriteLine("First number can be parsed: " + firstNumCanBeParsed);
+        secondNumCanBeParsed = int.TryParse(secondNumInput, out secondNum);
+        Console.WriteLine("Second number can be parsed: " + secondNumCanBeParsed);
 
         if (firstNumCanBeParsed && secondNumCanBeParsed)
         {
