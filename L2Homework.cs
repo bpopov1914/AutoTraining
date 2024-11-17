@@ -16,3 +16,8 @@ Lecture2HomeworkTask4.InputRadius();
 Lecture2HomeworkTask4.RadiusCanBeParsed();
 Lecture2HomeworkTask4.ParseRadius();
 Lecture2HomeworkTask4.CalculateArea();
+
+//Task 5: Validate Age Input
+Lecture2HomeworkTask5.InputAge();
+Lecture2HomeworkTask5.ValidateAgeInput();
+Lecture2HomeworkTask5.PrintResult();
