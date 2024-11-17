@@ -43,7 +43,7 @@ public class Lecture2HomeworkTask4
     {
         //Calculate the area of the circle
         area = pi * radius * radius;
-        Console.WriteLine($"The area of the circle is: {area}");
+        Console.WriteLine($"The area of the circle is: {area.ToString("N2")}");
         Console.WriteLine("-------------End of Task 4-------------");
     }
 }
