@@ -10,3 +10,9 @@ Lecture2HomeworkTask2.ConcatAndPrintNames();
 
 //Task 3: Extract and Modify Substring
 Lecture2HomeworkTask3.PrintSubstring();
+
+//Task 4: Calculate the Area of a Circle
+Lecture2HomeworkTask4.InputRadius();
+Lecture2HomeworkTask4.RadiusCanBeParsed();
+Lecture2HomeworkTask4.ParseRadius();
+Lecture2HomeworkTask4.CalculateArea();
