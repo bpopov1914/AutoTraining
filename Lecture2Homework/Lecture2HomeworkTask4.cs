@@ -8,6 +8,7 @@ public class Lecture2HomeworkTask4
     static double pi = Math.PI;
     static string radiusInput = "";
     static double radius = 0;
+    static double area = 0;
     static bool radiusCanBeParsed = false;
 
     public static void InputRadius()
@@ -36,6 +37,13 @@ public class Lecture2HomeworkTask4
         {
             Console.WriteLine("The radius is not valid. Please try again.");
         }
+    }
+
+    public static void CalculateArea()
+    {
+        //Calculate the area of the circle
+        area = pi * radius * radius;
+        Console.WriteLine($"The area of the circle is: {area}");
         Console.WriteLine("-------------End of Task 4-------------");
     }
 }
