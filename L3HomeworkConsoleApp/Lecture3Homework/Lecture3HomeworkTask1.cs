@@ -27,15 +27,15 @@ public class Lecture3HomeworkTask1
         {
             case "Premiere": 
                 actualPrice = premierePrice; 
-                Console.WriteLine("The price of the Premiere screening is: " + actualPrice);
+                Console.WriteLine($"The price of the Premiere screening is: {actualPrice}");
                 break;
             case "Normal": 
                 actualPrice = normalPrice;
-                Console.WriteLine("The price of the Normal screening is: " + actualPrice);
+                Console.WriteLine($"The price of the Normal screening is: {actualPrice}");
                 break;
             case "Discount": 
                 actualPrice = discountPrice;
-                Console.WriteLine("The price of the Discount screening is: " + actualPrice);
+                Console.WriteLine($"The price of the Discount screening is: {actualPrice}");
                 break;
             default: Console.WriteLine("Please enter a valid type of the screening (Premiere, Normal, Discount).");
                 break;
