@@ -4,6 +4,8 @@ class L3Homework
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        //Task 1: Cinema Hall
+        var cinemaHall = new Lecture3HomeworkTask1();
+        cinemaHall.InputScreeningType();
     }
 }
