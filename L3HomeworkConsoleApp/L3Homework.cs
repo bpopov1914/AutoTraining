@@ -1,6 +1,6 @@
 ﻿namespace L3HomeworkConsoleApp;
 
-class Program
+class L3Homework
 {
     static void Main(string[] args)
     {
