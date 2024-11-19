@@ -1,6 +1,50 @@
 namespace L3HomeworkConsoleApp;
 
 public class Lecture3HomeworkTask1
-{
+{ 
+    //Task 1: Cinema Hall
     
+    //Variables initialization
+    int numOfRows;
+    int numOfColumns;
+    int totalNumOfSeats;
+    string screeningInput = "";
+    string premiereScreening = "Premiere";
+    string normalScreening = "Normal";
+    string discountScreening = "Discount";
+    double premierePrice = 12.00;
+    double normalPrice = 7.50;
+    double discountPrice = 5.00;
+    double actualPrice;
+    
+    //Prompt the user to input screening type
+    public void InputScreeningType()
+    {
+        Console.WriteLine("Please enter the type of the screening. Use one of the following options: Premiere, Normal, Discount: ");
+        screeningInput = Console.ReadLine();
+
+        switch (screeningInput)
+        {
+            case "Premiere": actualPrice = premierePrice; 
+                break;
+            case "Normal": actualPrice = normalPrice;
+                break;
+            case "Discount": actualPrice = discountPrice;
+                break;
+            default: Console.WriteLine("Please enter a valid type of the screening (Premiere, Normal, Discount).");
+                break;
+        }
+    }
+    //Prompt the user to input the number of rows
+    public void InputNumberOfRows()
+    {
+        Console.WriteLine("Please enter the number of rows: "); 
+        numOfRows = int.Parse(Console.ReadLine());
+    }
+    //Prompt the user to input the number of columns
+    public void InputNumberOfColumns()
+    {
+        Console.WriteLine("Please enter the number of columns: ");
+        numOfColumns = int.Parse(Console.ReadLine());
+    }
 }
