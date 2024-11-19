@@ -28,15 +28,15 @@ public class Lecture3HomeworkTask1
         {
             case "Premiere": 
                 actualPrice = premierePrice; 
-                Console.WriteLine($"The price of the Premiere screening is: {actualPrice.ToString("0.00")}BGN");
+                Console.WriteLine($"The price of the Premiere screening is: {actualPrice.ToString("0.00")} BGN");
                 break;
             case "Normal": 
                 actualPrice = normalPrice;
-                Console.WriteLine($"The price of the Normal screening is: {actualPrice.ToString("0.00")}BGN");
+                Console.WriteLine($"The price of the Normal screening is: {actualPrice.ToString("0.00")} BGN");
                 break;
             case "Discount": 
                 actualPrice = discountPrice;
-                Console.WriteLine($"The price of the Discount screening is: {actualPrice.ToString("0.00")}BGN");
+                Console.WriteLine($"The price of the Discount screening is: {actualPrice.ToString("0.00")} BGN");
                 break;
             default: Console.WriteLine("Please enter a valid type of the screening (Premiere, Normal, Discount).");
                 break;
@@ -84,6 +84,6 @@ public class Lecture3HomeworkTask1
         totalRevenue = totalNumOfSeats * actualPrice;
         
         //Print the result
-        Console.WriteLine($"The total revenue is: {totalRevenue.ToString("0.00")}BGN");
+        Console.WriteLine($"The total revenue is: {totalRevenue.ToString("0.00")} BGN");
     }
 }
