@@ -10,5 +10,9 @@ class L3Homework
         cinemaHall.InputNumberOfRows();
         cinemaHall.InputNumberOfColumns();
         cinemaHall.CalculateTotalRevenue();
+        
+        //Task 2: Fishing Trip
+        var fishingTrip = new Lecture3HomeworkTask2();
+        fishingTrip.InputGroupBudget();
     }
 }
