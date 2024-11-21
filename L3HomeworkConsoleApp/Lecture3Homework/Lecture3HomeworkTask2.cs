@@ -94,7 +94,9 @@ public class Lecture3HomeworkTask2
             case "Spring":
                 priceBeforeDiscounts = springPrice;
                 break;
-            
+            default:
+                Console.WriteLine("Please enter a valid season.");
+                break;
         }
     }
 }
