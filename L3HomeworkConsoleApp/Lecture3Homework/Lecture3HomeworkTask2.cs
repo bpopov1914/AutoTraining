@@ -18,6 +18,7 @@ public class Lecture3HomeworkTask2
     //Prompt the user to input group budget an integer in the range [1…8000]
     public void InputGroupBudget()
     {
+        //Prompt the user to input group budget
         Console.WriteLine("Task 2: Enter group budget: ");
         string input = Console.ReadLine();
         if (int.TryParse(input, out groupBudget))
@@ -40,6 +41,7 @@ public class Lecture3HomeworkTask2
 
     public void InputSeason()
     {
+        //Prompt the user to input the season
         Console.WriteLine("Please enter season: ");
         season = Console.ReadLine();
         if (season == "Winter" || season == "Summer" || season == "Autumn" || season == "Spring")
@@ -54,6 +56,7 @@ public class Lecture3HomeworkTask2
 
     public void InputNumOfFisherman()
     {
+        //Prompt the user to input the number of people in the group
         Console.WriteLine("Please enter the number of people in the group: ");
         string input = Console.ReadLine();
         if (int.TryParse(input, out numOfFisherman))
