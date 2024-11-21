@@ -14,5 +14,7 @@ class L3Homework
         //Task 2: Fishing Trip
         var fishingTrip = new Lecture3HomeworkTask2();
         fishingTrip.InputGroupBudget();
+        fishingTrip.InputSeason();
+        fishingTrip.InputNumOfFisherman();
     }
 }

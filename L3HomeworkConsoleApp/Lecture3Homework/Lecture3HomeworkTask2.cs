@@ -76,4 +76,25 @@ public class Lecture3HomeworkTask2
             Console.WriteLine("Please enter a valid number input.");
         }
     }
+
+    public void DeterminePriceBasedOnSeason()
+    {
+        //Determine the price based on the season
+        switch (season)
+        {
+            case "Winter":
+                priceBeforeDiscounts = winterPrice;
+                break;
+            case "Summer":
+                priceBeforeDiscounts = summerPrice;
+                break;
+            case "Autumn":
+                priceBeforeDiscounts = autumnPrice;
+                break;
+            case "Spring":
+                priceBeforeDiscounts = springPrice;
+                break;
+            
+        }
+    }
 }
