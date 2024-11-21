@@ -12,11 +12,13 @@ public class Lecture3HomeworkTask2
     double summerPrice = 4200.00;
     double autumnPrice = 4200.00;
     double winterPrice = 2600.00;
+    double priceBeforeDiscounts;
+    double finalPrice;
     
     //Prompt the user to input group budget an integer in the range [1…8000]
     public void InputGroupBudget()
     {
-        Console.WriteLine("Enter group budget: ");
+        Console.WriteLine("Task 2: Enter group budget: ");
         string input = Console.ReadLine();
         if (int.TryParse(input, out groupBudget))
         {
@@ -36,4 +38,39 @@ public class Lecture3HomeworkTask2
         }
     }
 
+    public void InputSeason()
+    {
+        Console.WriteLine("Please enter season: ");
+        season = Console.ReadLine();
+        if (season == "Winter" || season == "Summer" || season == "Autumn" || season == "Spring")
+        {
+            Console.WriteLine($"The selected season is: {season}");
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid season.");
+        }
+    }
+
+    public void InputNumOfFisherman()
+    {
+        Console.WriteLine("Please enter the number of people in the group: ");
+        string input = Console.ReadLine();
+        if (int.TryParse(input, out numOfFisherman))
+        {
+            numOfFisherman = int.Parse(input);
+            if (numOfFisherman >= 4 && numOfFisherman <= 18)
+            {
+                Console.WriteLine($"You are a group of {numOfFisherman} fisherman.");
+            }
+            else
+            {
+                Console.WriteLine("Your group must be between 4 and 18 fisherman");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid number input.");
+        }
+    }
 }

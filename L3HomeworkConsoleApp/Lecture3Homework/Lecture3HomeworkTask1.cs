@@ -21,7 +21,7 @@ public class Lecture3HomeworkTask1
     //Prompt the user to input screening type
     public void InputScreeningType()
     {
-        Console.WriteLine("Please enter the type of the screening. Use one of the following options: Premiere, Normal, Discount: ");
+        Console.WriteLine("Task 1: Please enter the type of the screening. Use one of the following options: Premiere, Normal, Discount: ");
         screeningInput = Console.ReadLine();
 
         switch (screeningInput)
@@ -85,5 +85,6 @@ public class Lecture3HomeworkTask1
         
         //Print the result
         Console.WriteLine($"The total revenue is: {totalRevenue.ToString("0.00")} BGN");
+        Console.WriteLine("-------------End of Task 1-------------");
     }
 }
