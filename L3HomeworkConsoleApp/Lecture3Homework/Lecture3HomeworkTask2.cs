@@ -16,7 +16,7 @@ public class Lecture3HomeworkTask2
     double finalPrice;
     
     //Prompt the user to input group budget an integer in the range [1…8000]
-    public void InputGroupBudget()
+    public bool InputGroupBudget()
     {
         //Prompt the user to input group budget
         Console.WriteLine("Task 2: Enter group budget: ");
@@ -27,19 +27,22 @@ public class Lecture3HomeworkTask2
             if (groupBudget >= 1 && groupBudget <= 8000)
             {
                 Console.WriteLine($"You entered group budget: {groupBudget} BGN");
+                return true;
             }
             else
             {
-                Console.WriteLine("Your budget must be between 1 and 8000");
+                Console.WriteLine("Your budget must be between 1 and 8000. Please try again.");
+                return false;
             }
         }
         else
         {
             Console.WriteLine("Please enter a valid number input.");
+            return false;
         }
     }
 
-    public void InputSeason()
+    public bool InputSeason()
     {
         //Prompt the user to input the season
         Console.WriteLine("Please enter season: ");
@@ -47,14 +50,16 @@ public class Lecture3HomeworkTask2
         if (season == "Winter" || season == "Summer" || season == "Autumn" || season == "Spring")
         {
             Console.WriteLine($"The selected season is: {season}");
+            return true;
         }
         else
         {
             Console.WriteLine("Please enter a valid season.");
+            return false;
         }
     }
 
-    public void InputNumOfFisherman()
+    public bool InputNumOfFisherman()
     {
         //Prompt the user to input the number of people in the group
         Console.WriteLine("Please enter the number of people in the group: ");
@@ -65,15 +70,18 @@ public class Lecture3HomeworkTask2
             if (numOfFisherman >= 4 && numOfFisherman <= 18)
             {
                 Console.WriteLine($"You are a group of {numOfFisherman} fisherman.");
+                return true;
             }
             else
             {
-                Console.WriteLine("Your group must be between 4 and 18 fisherman");
+                Console.WriteLine("Your group must be between 4 and 18 fisherman.");
+                return false;
             }
         }
         else
         {
             Console.WriteLine("Please enter a valid number input.");
+            return false;
         }
     }
 
@@ -84,15 +92,19 @@ public class Lecture3HomeworkTask2
         {
             case "Winter":
                 priceBeforeDiscounts = winterPrice;
+                Console.WriteLine($"The Winter price before discounts is: {priceBeforeDiscounts}.");
                 break;
             case "Summer":
                 priceBeforeDiscounts = summerPrice;
+                Console.WriteLine($"The Summer price before discounts is: {priceBeforeDiscounts}.");
                 break;
             case "Autumn":
                 priceBeforeDiscounts = autumnPrice;
+                Console.WriteLine($"The Autumn price before discounts is: {priceBeforeDiscounts}.");
                 break;
             case "Spring":
                 priceBeforeDiscounts = springPrice;
+                Console.WriteLine($"The Spring price before discounts is: {priceBeforeDiscounts}.");
                 break;
             default:
                 Console.WriteLine("Please enter a valid season.");
@@ -136,7 +148,7 @@ public class Lecture3HomeworkTask2
         //Check if additional 5% discount should be applied
         if (numOfFisherman % 2 == 0 && season != "Autumn")
         {
-            finalPrice = finalPrice * 0.5;
+            finalPrice = finalPrice - (finalPrice * 0.05);
             Console.WriteLine($"An additional 5% is applied. The final price is: {finalPrice}");
         }
         else

@@ -13,9 +13,24 @@ class L3Homework
         
         //Task 2: Fishing Trip
         var fishingTrip = new Lecture3HomeworkTask2();
-        fishingTrip.InputGroupBudget();
-        fishingTrip.InputSeason();
-        fishingTrip.InputNumOfFisherman();
+        bool budgetInRange = fishingTrip.InputGroupBudget();
+        //Stop further execution if budget not in range
+        if (!budgetInRange)
+        {
+            return;
+        }
+        bool isSeasonValid = fishingTrip.InputSeason();
+        //Stop further execution if season is not valid
+        if (!isSeasonValid)
+        {
+            return;
+        }
+        bool isNumOfPeopleInRange = fishingTrip.InputNumOfFisherman();
+        //Stop further execution if number of fisherman not in range
+        if (!isNumOfPeopleInRange)
+        {
+            return;
+        }
         fishingTrip.DeterminePriceBasedOnSeason();
         fishingTrip.CalculateFinalPrice();
         fishingTrip.IsBudgetEnough();
