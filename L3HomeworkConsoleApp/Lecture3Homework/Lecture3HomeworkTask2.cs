@@ -99,4 +99,62 @@ public class Lecture3HomeworkTask2
                 break;
         }
     }
+
+    public void CalculateFinalPrice()
+    {
+        double discount;
+
+        //Assign discount based on group size
+        if (numOfFisherman <= 6)
+        {
+            //If group is up to 6 people, apply 10% discount
+            discount = priceBeforeDiscounts * 0.10;
+            Console.WriteLine($"The discount is: {discount}");
+            //Calculate final price
+            finalPrice = priceBeforeDiscounts - discount;
+            Console.WriteLine($"The final price is: {finalPrice}");
+        }
+        else if (numOfFisherman > 6 && numOfFisherman <= 11)
+        {
+            //If group is between 7 and 11 people, apply 15% discount
+            discount = priceBeforeDiscounts * 0.15;
+            Console.WriteLine($"The discount is: {discount}");
+            //Calculate final price
+            finalPrice = priceBeforeDiscounts - discount;
+            Console.WriteLine($"The final price is: {finalPrice}");
+        }
+        else
+        {
+            //If group is 12 people or more, apply 25% discount
+            discount = priceBeforeDiscounts * 0.25;
+            Console.WriteLine($"The discount is: {discount}");
+            //Calculate final price
+            finalPrice = priceBeforeDiscounts - discount;
+            Console.WriteLine($"The final price is: {finalPrice}");
+        }
+        
+        //Check if additional 5% discount should be applied
+        if (numOfFisherman % 2 == 0 && season != "Autumn")
+        {
+            finalPrice = finalPrice * 0.5;
+            Console.WriteLine($"An additional 5% is applied. The final price is: {finalPrice}");
+        }
+        else
+        {
+            Console.WriteLine($"No additional discount applied.");
+        }
+    }
+
+    public void IsBudgetEnough()
+    {
+        if (groupBudget >= finalPrice)
+        {
+            Console.WriteLine($"Congratulations, you have rented a boat successfully for {finalPrice} BGN");
+        }
+        else
+        {
+            Console.WriteLine("Oops, it seems you don't have enough money to rent the boat.");
+        }
+        Console.WriteLine("-------------End of Task 2-------------");
+    }
 }

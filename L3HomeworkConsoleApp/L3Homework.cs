@@ -16,5 +16,8 @@ class L3Homework
         fishingTrip.InputGroupBudget();
         fishingTrip.InputSeason();
         fishingTrip.InputNumOfFisherman();
+        fishingTrip.DeterminePriceBasedOnSeason();
+        fishingTrip.CalculateFinalPrice();
+        fishingTrip.IsBudgetEnough();
     }
 }
