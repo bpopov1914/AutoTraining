@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace L3HomeworkConsoleApp.Lecture3Homework
+﻿namespace L3HomeworkConsoleApp.Lecture3Homework
 {
     public class Lecture3HomeworkTask3
     {
@@ -14,9 +8,7 @@ namespace L3HomeworkConsoleApp.Lecture3Homework
         int numberOfOpenTabs;
         double salary;
         string website;
-        string facebook = "Facebook";
-        string instagram = "Instagram";
-        string reddit = "Reddit";
+        List<string> openTabs = new List<string>();
         double fbFine = 150;
         double instaFine = 100;
         double redFine = 50;
@@ -81,6 +73,59 @@ namespace L3HomeworkConsoleApp.Lecture3Homework
                 Console.WriteLine("Invalid input. Please try again.");
                 return false;
             }
+        }
+
+        //Check opened websites
+        public void CheckWebsites()
+        {
+            //Prompt the user to enter all opened websites
+            Console.WriteLine("Please enter the names of the opened websites:");
+            for (int i = 1; i <= numberOfOpenTabs; i++) 
+            {
+                website = Console.ReadLine();
+                openTabs.Add(website);
+                Console.WriteLine($"\'{website}\' was added to the list of open tabs.");
+            }
+
+            //Determine fines
+            foreach (string website in openTabs) 
+            {
+                //Check if open website is prohibited
+                switch (website)
+                {
+                    case "Facebook":
+                        salary = salary - fbFine;
+                        Console.WriteLine($"Facebook is opened. Your salary is now {salary} BGN");
+                        break;
+                    case "Instagram":
+                        salary = salary - instaFine;
+                        Console.WriteLine($"Instagram is opened. Your salary is now {salary} BGN");
+                        break;
+                    case "Reddit":
+                        salary = salary - redFine;
+                        Console.WriteLine($"Reddit is opened. Your salary is now {salary} BGN");
+                        break;
+                    default:
+                        Console.WriteLine($"No fine applied. Your salary is {salary} BGN");
+                        break;
+
+                }
+                //Check if salary is above 0 on each iteration
+                if(salary <= 0)
+                {
+                    Console.WriteLine($"You have lost your salary.");
+                    Console.WriteLine("-------------End of Task 3-------------");
+                    break;
+                }
+            }
+
+            //Print the remaining salary as an integer
+            if(salary > 0)
+            {
+                Console.WriteLine($"Your remaining salary is {(int)salary} BGN");
+                Console.WriteLine("-------------End of Task 3-------------");
+            }
+
         }
         
 
