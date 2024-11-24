@@ -67,7 +67,7 @@ namespace L3HomeworkConsoleApp.Lecture3Homework
                 //Check if input is in range
                 if (salary >= 700 && salary <= 1500)
                 {
-                    Console.WriteLine($"Your salary is: {numberOfOpenTabs} BGN");
+                    Console.WriteLine($"Your salary is: {salary} BGN");
                     return true;
                 }
                 else
