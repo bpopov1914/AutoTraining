@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace L3HomeworkConsoleApp.Lecture3Homework
 {
-    class Lecture3HomeworkTask3
+    public class Lecture3HomeworkTask3
     {
         //Task 3: Salary Deduction
 
