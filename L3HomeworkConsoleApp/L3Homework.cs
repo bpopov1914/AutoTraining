@@ -43,6 +43,11 @@ class L3Homework
         {
             return;
         }
-
+        bool isSalaryInRange = salaryDeduction.InputSalary();
+        //Stop further execution if salary not in range
+        if (!isSalaryInRange)
+        {
+            return;
+        }
     }
 }
