@@ -1,9 +1,9 @@
-namespace AutoTrainingConsoleApp;
+namespace AutoTrainingConsoleApp.Lecture2Homework;
 
 public class Lecture2HomeworkTask4
 {
     //Task 4: Calculate the Area of a Circle
-    
+
     //Variables initialization
     static double pi = Math.PI;
     static string radiusInput = "";

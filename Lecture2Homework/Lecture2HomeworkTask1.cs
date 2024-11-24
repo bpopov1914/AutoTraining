@@ -1,9 +1,9 @@
-namespace AutoTrainingConsoleApp;
+namespace AutoTrainingConsoleApp.Lecture2Homework;
 
 public class Lecture2HomeworkTask1
 {
     //Task 1: Convert and Add Two Numbers
-    
+
     //Variables initialization
     private static string firstNumInput = "";
     private static string secondNumInput = "";
@@ -36,10 +36,10 @@ public class Lecture2HomeworkTask1
             //Parse the nums
             firstNum = int.Parse(firstNumInput);
             secondNum = int.Parse(secondNumInput);
-            
+
             //Add the two nums
             sum = firstNum + secondNum;
-            
+
             //Print the sum of the two numbers.
             Console.WriteLine("The sum of the two numbers is: " + sum);
         }
@@ -49,5 +49,5 @@ public class Lecture2HomeworkTask1
         }
         Console.WriteLine("-------------End of Task 1-------------");
     }
-    
+
 }

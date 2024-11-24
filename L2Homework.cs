@@ -1,4 +1,4 @@
-﻿using AutoTrainingConsoleApp;
+﻿using AutoTrainingConsoleApp.Lecture2Homework;
 
 //Task 1: Convert and Add Two Numbers
 Lecture2HomeworkTask1.InputNumbers();
