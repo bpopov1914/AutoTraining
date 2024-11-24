@@ -38,11 +38,13 @@ namespace L3HomeworkConsoleApp.Lecture3Homework
                 }
                 else
                 {
+                    Console.WriteLine("The number of tabs is not between 1 and 10.");
                     return false;
                 }
             }
             else
             {
+                Console.WriteLine("Invalid input. Please try again.");
                 return false;
             }
         }
