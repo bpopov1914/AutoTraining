@@ -9,7 +9,7 @@ public class Subjects
 
     public bool CheckIfSubjectIsAllowed(string subject)
     {
-
+        //ToDo: Validation
         return false;
     }
 }
