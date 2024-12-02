@@ -3,13 +3,20 @@ namespace L6Exercise.Utils;
 public class Actions
 {
     Students students = new();
+    MainMenu mainMenu = new();
     private int selectedOption;
-
+    private bool isExitSelected;
+    
     public void SelectOption()
     {
-        //Add validations
-        selectedOption = int.Parse(Console.ReadLine());
-        SelectAction(selectedOption);
+        mainMenu.PrintWelcomeMessage();
+        while (!isExitSelected)
+        {
+            mainMenu.PrintMainMenu();
+            //Add validations
+            selectedOption = int.Parse(Console.ReadLine());
+            SelectAction(selectedOption);
+        }
     }
     void SelectAction(int selectedOption)
     {
@@ -36,6 +43,7 @@ public class Actions
                 students.DisplayAllStudents();
                 break;
             case 6:
+                isExitSelected = true;
                 Console.WriteLine("Exiting the system. Goodbye!");
                 break;
             default:
