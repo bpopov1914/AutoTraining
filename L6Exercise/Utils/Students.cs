@@ -3,8 +3,7 @@ namespace L6Exercise.Utils;
 class Students
 {
     private Dictionary<string, Dictionary<string, List<int>>> students = new Dictionary<string, Dictionary<string, List<int>>>();
-    MainMenu mainMenu = new MainMenu();
-    UserInput userInput = new UserInput();
+    UserInput userInput = new();
     public void AddStudent()
     {
         string studentToAdd = userInput.InputStudentName();

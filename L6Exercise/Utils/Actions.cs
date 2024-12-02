@@ -2,8 +2,7 @@ namespace L6Exercise.Utils;
 
 public class Actions
 {
-    Students students = new Students();
-    Subjects subjects = new Subjects();
+    Students students = new();
     private int selectedOption;
 
     public void SelectOption()
