@@ -2,22 +2,38 @@ namespace L6Exercise.Utils;
 
 class Students
 {
-    private Dictionary<string, Dictionary<string, List<int>>> students = new Dictionary<string, Dictionary<string, List<int>>>();
+    private Dictionary<string, Dictionary<string, List<int>>> students = new();
     UserInput userInput = new();
     public void AddStudent()
     {
+        Console.WriteLine("Please enter the students name: ");
         string studentToAdd = userInput.InputStudentName();
-        //Add check if user already exists
-        students.Add(studentToAdd, new Dictionary<string, List<int>>());
-        Console.WriteLine($"Student {studentToAdd} added successfully!");
+        bool doesStudentExist = students.ContainsKey(studentToAdd);
+        if (doesStudentExist)
+        {
+            Console.WriteLine($"Student {studentToAdd} already exists.");
+        }
+        else
+        {
+            students.Add(studentToAdd, new Dictionary<string, List<int>>());
+            Console.WriteLine($"Student {studentToAdd} added successfully!");
+        }
     }
 
     public void RemoveStudent()
     {
+        Console.WriteLine("Please enter the name of the student you want to remove: ");
         string studentToRemove = userInput.InputStudentName();
-        //Add check if user exists
-        students.Remove(studentToRemove);
-        Console.WriteLine($"Student {studentToRemove} removed successfully!");
+        bool doesStudentExist = students.ContainsKey(studentToRemove);
+        if (!doesStudentExist)
+        {
+            Console.WriteLine($"Student {studentToRemove} doesn't exist.");
+        }
+        else
+        {
+            students.Remove(studentToRemove);
+            Console.WriteLine($"Student {studentToRemove} removed successfully!");
+        }
     }
 
     public void AssignStudentToSubject()
