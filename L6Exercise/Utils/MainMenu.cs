@@ -1,8 +1,8 @@
 namespace L6Exercise.Utils;
 class MainMenu
 {
-    int selectedOption;
-    private Dictionary<int, string> menuOptions = new Dictionary<int, string>()
+    Actions actions = new();
+    private Dictionary<int, string> menuOptions = new()
     {
         {1, "1. Add a new student"},
         {2, "2. Remove a student"},
@@ -25,14 +25,7 @@ class MainMenu
         {
             Console.WriteLine(option.Value);
         }
-        SelectOption();
+        actions.SelectOption();
     }
 
-    public void SelectOption()
-    {
-        //ToDo: Add validations
-        selectedOption = int.Parse(Console.ReadLine());
-    }
-
-    
 }

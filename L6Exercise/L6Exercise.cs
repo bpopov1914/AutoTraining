@@ -4,12 +4,11 @@ namespace L6Exercise;
 
 class Program
 {
-    static MainMenu mainMenu = new MainMenu();
     static void Main(string[] args)
     {
+        MainMenu mainMenu = new();
         mainMenu.PrintWelcomeMessage();
         mainMenu.PrintMainMenu();
-        mainMenu.SelectOption();
         
     }
 }

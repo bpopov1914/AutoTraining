@@ -12,17 +12,21 @@ class UserInput
         return studentNameInput;
     }
 
-    public void InputStudentAndSubject()
+    public string InputSubject()
     {
         //{StudentName}-{Subject}
-        studentNameInput = Console.ReadLine();
         subject = Console.ReadLine();
+        return subject;
     }
 
-    public void InputSubjectAndGrade()
+    public List<double> InputGrade()
     {
         // {Subject name}-{grade} 
-        subject = Console.ReadLine();
+        //subject = Console.ReadLine();
+        List<double> grades = new List<double>();
+        //while grade is a number in range 0-6
         grade = double.Parse(Console.ReadLine());
+        grades.Add(grade);
+        return grades;
     }
 }
