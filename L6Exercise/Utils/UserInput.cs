@@ -36,7 +36,6 @@ class UserInput
                 bool canGradeBeParsed = double.TryParse(gradeInput, out double grade);
                 if (canGradeBeParsed && (grade >= 2 && grade <= 6))
                 {
-                    grade = double.Parse(Console.ReadLine());
                     grades.Add(grade);
                     counter++;
                 }

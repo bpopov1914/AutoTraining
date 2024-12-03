@@ -56,7 +56,7 @@ class Students
                 if (!isSubjectAlreadyAssigned)
                 {
                     assignedSubjects.Add(subject, new List<double>());
-                    students[studentToUpdate] = new Dictionary<string, List<double>>();
+                    students[studentToUpdate] = new Dictionary<string, List<double>>(assignedSubjects);
                     students[studentToUpdate][subject] = new List<double>(grades);
                     Console.WriteLine($"Student {studentToUpdate} was successfully enrolled in the {subject} class.");
                 }
@@ -96,7 +96,7 @@ class Students
                 {
                     grades = userInput.InputGrade();
                     assignedSubjects[subjectToGrade].AddRange(grades);
-                    Console.WriteLine($"Student {studentToGrade}: Subject: {subjectToGrade}: Grades: " + string.Join(", ", grades));
+                    Console.WriteLine($"Student \"{studentToGrade}\": Subject \"{subjectToGrade}\": Grades " + string.Join(", ", grades));
                 }
                 else
                 {
@@ -150,7 +150,7 @@ class Students
 
         foreach (var student in students)
         {
-            string subjects = string.Join(", ", student.Value);
+            string subjects = string.Join(", ", student.Value.Keys);
             Console.WriteLine($"{student.Key}, Subjects: {subjects} \nAverage Grade: {averageGrade:F2}");
         }
     }
