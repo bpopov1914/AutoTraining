@@ -95,10 +95,10 @@ class Students
                     List<double> grades = userInput.InputGrade();
                     AddGradesToSubjects(students[studentToGrade], grades, subjectToGrade);
                     Console.WriteLine($"Student \"{studentToGrade}\": Subject \"{subjectToGrade}\"");
-                    /*foreach (var grade in grades)
+                    foreach (var grade in students[studentToGrade].Values)
                     {
-                        Console.Write($"{grade};");
-                    }*/
+                        Console.Write($"{grade} ");
+                    }
                 }
                 else
                 {
