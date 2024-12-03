@@ -3,10 +3,12 @@ namespace L6Exercise.Utils;
 class Students
 {
     private Dictionary<string, Dictionary<string, List<int>>> students = new();
+    private Dictionary<string, List<int>> assignedSubjects = new();
     UserInput userInput = new();
+    Subjects subjects = new();
     public void AddStudent()
     {
-        Console.WriteLine("Please enter the students name: ");
+        Console.WriteLine("Please enter the name of the student you want to add: ");
         string studentToAdd = userInput.InputStudentName();
         bool doesStudentExist = students.ContainsKey(studentToAdd);
         if (doesStudentExist)
@@ -38,10 +40,39 @@ class Students
 
     public void AssignStudentToSubject()
     {
+        Console.WriteLine("Please enter the name of the student you want to assign to a subject: ");
         string studentToUpdate = userInput.InputStudentName();
-        string subject = userInput.InputSubject();
-        //Add assignment logic
-        Console.WriteLine($"Student {studentToUpdate} has successfully enrolled in the {subject} class.");
+        bool studentExists = students.ContainsKey(studentToUpdate);
+        
+        if (studentExists)
+        {
+            Console.WriteLine("Please enter the subject you want to assign the student to: ");
+            string subject = userInput.InputSubject();
+            bool isSubjectAllowed = subjects.CheckIfSubjectIsAllowed(subject);
+            if (isSubjectAllowed)
+            {
+                bool isSubjectAlreadyAssigned = students[studentToUpdate].ContainsKey(subject);
+                if (!isSubjectAlreadyAssigned)
+                {
+                    students[studentToUpdate].Add(subject, new List<int>());
+                    Console.WriteLine($"Student {studentToUpdate} was successfully enrolled in the {subject} class.");
+                }
+                else
+                {
+                    Console.WriteLine($"Student {studentToUpdate} is already assigned to subject: {subject}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid subject you want to assign: \"Math\", \"Biology\", \"History\", \"English\", \"Sport\", \"Physics\"");
+            }
+            
+        }
+        else
+        {
+            Console.WriteLine($"Student {studentToUpdate} doesn't exist.");
+        }
+        
     }
 
     public void AssignGradesToStudent()
