@@ -54,8 +54,8 @@ class Students
                 bool isSubjectAlreadyAssigned = students[studentToUpdate].ContainsKey(subject);
                 if (!isSubjectAlreadyAssigned)
                 {
-                    students[studentToUpdate].Add(subject, new List<double>());
-                    AddSubjectsToStudents(students, students[studentToUpdate], studentToUpdate);
+                    List<double> grades = new();
+                    students[studentToUpdate].Add(subject, grades);
                     Console.WriteLine($"Student {studentToUpdate} was successfully enrolled in the {subject} class.");
                 }
                 else
@@ -94,7 +94,11 @@ class Students
                 {
                     List<double> grades = userInput.InputGrade();
                     AddGradesToSubjects(students[studentToGrade], grades, subjectToGrade);
-                    Console.WriteLine($"Student \"{studentToGrade}\": Subject \"{subjectToGrade}\": Grades " + string.Join(", ", students[studentToGrade].Values));
+                    Console.WriteLine($"Student \"{studentToGrade}\": Subject \"{subjectToGrade}\"");
+                    /*foreach (var grade in grades)
+                    {
+                        Console.Write($"{grade};");
+                    }*/
                 }
                 else
                 {
@@ -152,26 +156,18 @@ class Students
         }
     }
     
-     static void AddSubjectsToStudents(
-        Dictionary<string, Dictionary<string, List<double>>> students, 
-         Dictionary<string, List<double>> subjects, 
-           string studentName)
-     {
-         students[studentName] = new Dictionary<string, List<double>>();
-         
-         foreach (var subject in subjects)
-         {
-             students[studentName][subject.Key] = new List<double>(subject.Value);
-         }
-     }
-
      static void AddGradesToSubjects(
          Dictionary<string, List<double>> subjects, 
          List<double> grades, 
          string subjectName)
      {
-         subjects[subjectName] = new List<double>();
-         subjects[subjectName].AddRange(grades);
+         foreach (var subject in subjects)
+         {
+             if (subject.Key == subjectName)
+             {
+                 subject.Value.AddRange(grades);
+             }
+         }
      }
     
 }
