@@ -13,9 +13,15 @@ public class Actions
         while (!isExitSelected)
         {
             mainMenu.PrintMainMenu();
-            //Add validations
-            selectedOption = int.Parse(Console.ReadLine());
-            SelectAction(selectedOption);
+            bool optionSelectedIsValid = int.TryParse(Console.ReadLine(), out int selectedOption);
+            if (optionSelectedIsValid)
+            {
+                SelectAction(selectedOption);
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid number between 1 and 6.");
+            }
         }
     }
     void SelectAction(int selectedOption)
@@ -47,7 +53,7 @@ public class Actions
                 Console.WriteLine("Exiting the system. Goodbye!");
                 break;
             default:
-                Console.WriteLine("Please enter a valid option");
+                Console.WriteLine("Please enter a valid option.");
                 break;
         }
     }

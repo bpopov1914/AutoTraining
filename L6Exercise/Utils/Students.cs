@@ -3,8 +3,6 @@ namespace L6Exercise.Utils;
 class Students
 {
     private Dictionary<string, Dictionary<string, List<double>>> students = new();
-    private Dictionary<string, List<double>> assignedSubjects = new();
-    private List<double> grades = new();
     UserInput userInput = new();
     Subjects subjects = new();
     public void AddStudent()
@@ -18,6 +16,7 @@ class Students
         }
         else
         {
+            Dictionary<string, List<double>> assignedSubjects = new();
             students.Add(studentToAdd, assignedSubjects);
             Console.WriteLine($"Student {studentToAdd} added successfully!");
         }
@@ -52,12 +51,11 @@ class Students
             bool isSubjectAllowed = subjects.CheckIfSubjectIsAllowed(subject);
             if (isSubjectAllowed)
             {
-                bool isSubjectAlreadyAssigned = assignedSubjects.ContainsKey(subject);
+                bool isSubjectAlreadyAssigned = students[studentToUpdate].ContainsKey(subject);
                 if (!isSubjectAlreadyAssigned)
                 {
-                    assignedSubjects.Add(subject, new List<double>());
-                    students[studentToUpdate] = new Dictionary<string, List<double>>(assignedSubjects);
-                    students[studentToUpdate][subject] = new List<double>(grades);
+                    students[studentToUpdate].Add(subject, new List<double>());
+                    AddSubjectsToStudents(students, students[studentToUpdate], studentToUpdate);
                     Console.WriteLine($"Student {studentToUpdate} was successfully enrolled in the {subject} class.");
                 }
                 else
@@ -94,9 +92,9 @@ class Students
                 bool isSubjectAssigned = students[studentToGrade].ContainsKey(subjectToGrade);
                 if (isSubjectAssigned)
                 {
-                    grades = userInput.InputGrade();
-                    assignedSubjects[subjectToGrade].AddRange(grades);
-                    Console.WriteLine($"Student \"{studentToGrade}\": Subject \"{subjectToGrade}\": Grades " + string.Join(", ", grades));
+                    List<double> grades = userInput.InputGrade();
+                    AddGradesToSubjects(students[studentToGrade], grades, subjectToGrade);
+                    Console.WriteLine($"Student \"{studentToGrade}\": Subject \"{subjectToGrade}\": Grades " + string.Join(", ", students[studentToGrade].Values));
                 }
                 else
                 {
@@ -116,43 +114,64 @@ class Students
         
     }
 
-    public double CalculateAverageGrade(Dictionary<string, Dictionary<string, List<double>>> students)
+    public double CalculateAverageGrade(Dictionary<string, List<double>> subjects)
     {
         double averageGrade = 0;
-        foreach (var student in students)
+        double totalGradesSum = 0;
+        int numOfSubjects = subjects.Count;
+        int numOfGrades = 0;
+
+        foreach (var subject in subjects)
         {
-            double totalGrades = 0;
-            int totalSubjects = 0;
-
-            foreach (var subject in student.Value)
-            {
-                List<double> grades = subject.Value;
-                totalGrades = totalGrades + grades.Sum();
-                totalSubjects = totalSubjects + grades.Count;
-            }
-
-            if (totalSubjects > 0)
-            {
-                averageGrade = totalGrades / totalSubjects;
-            }
-            else
-            {
-                averageGrade = 0;
-            }
+            List<double> grades = subject.Value;
+            var totalGradesSumPerSubject = grades.Sum();
+            totalGradesSum = totalGradesSum + totalGradesSumPerSubject;
+            numOfGrades = numOfGrades + grades.Count();
         }
 
+        if (numOfSubjects > 0)
+        {
+            averageGrade = totalGradesSum / numOfGrades;
+        }
+        else
+        {
+            averageGrade = 0;
+        }
+        
         return averageGrade;
     }
 
     public void DisplayAllStudents()
     {
-        double averageGrade = CalculateAverageGrade(students);
-
         foreach (var student in students)
         {
             string subjects = string.Join(", ", student.Value.Keys);
+            double averageGrade = CalculateAverageGrade(student.Value);
+
             Console.WriteLine($"{student.Key}, Subjects: {subjects} \nAverage Grade: {averageGrade:F2}");
         }
     }
+    
+     static void AddSubjectsToStudents(
+        Dictionary<string, Dictionary<string, List<double>>> students, 
+         Dictionary<string, List<double>> subjects, 
+           string studentName)
+     {
+         students[studentName] = new Dictionary<string, List<double>>();
+         
+         foreach (var subject in subjects)
+         {
+             students[studentName][subject.Key] = new List<double>(subject.Value);
+         }
+     }
+
+     static void AddGradesToSubjects(
+         Dictionary<string, List<double>> subjects, 
+         List<double> grades, 
+         string subjectName)
+     {
+         subjects[subjectName] = new List<double>();
+         subjects[subjectName].AddRange(grades);
+     }
     
 }
