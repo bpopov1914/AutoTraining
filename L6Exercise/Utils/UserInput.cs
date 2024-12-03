@@ -22,12 +22,36 @@ class UserInput
 
     public List<double> InputGrade()
     {
-        // {Subject name}-{grade} 
-        //subject = Console.ReadLine();
+        Console.WriteLine("Please enter the number of grades you want to add: ");
+        string numberOfGradesInput = Console.ReadLine();
+        bool numOfGradesCanBeParsed = int.TryParse(numberOfGradesInput, out int numOfGrades);
         
-        //while grade is a number in range 0-6
-        grade = double.Parse(Console.ReadLine());
-        grades.Add(grade);
+        if (numOfGradesCanBeParsed)
+        {
+            int counter = 0;
+            while (counter < numOfGrades)
+            {
+                Console.WriteLine("Please enter grade. Must be in the range [2-6]: ");
+                string gradeInput = Console.ReadLine();
+                bool canGradeBeParsed = double.TryParse(gradeInput, out double grade);
+                if (canGradeBeParsed && (grade >= 2 && grade <= 6))
+                {
+                    grade = double.Parse(Console.ReadLine());
+                    grades.Add(grade);
+                    counter++;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid grade. Must be in the range [2-6].");
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid grade. Must be in the range [2-6].");
+        }
+        
         return grades;
     }
 }

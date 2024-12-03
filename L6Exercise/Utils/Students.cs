@@ -2,8 +2,9 @@ namespace L6Exercise.Utils;
 
 class Students
 {
-    private Dictionary<string, Dictionary<string, List<int>>> students = new();
-    private Dictionary<string, List<int>> assignedSubjects = new();
+    private Dictionary<string, Dictionary<string, List<double>>> students = new();
+    private Dictionary<string, List<double>> assignedSubjects = new();
+    private List<double> grades = new();
     UserInput userInput = new();
     Subjects subjects = new();
     public void AddStudent()
@@ -17,7 +18,7 @@ class Students
         }
         else
         {
-            students.Add(studentToAdd, new Dictionary<string, List<int>>());
+            students.Add(studentToAdd, assignedSubjects);
             Console.WriteLine($"Student {studentToAdd} added successfully!");
         }
     }
@@ -51,10 +52,14 @@ class Students
             bool isSubjectAllowed = subjects.CheckIfSubjectIsAllowed(subject);
             if (isSubjectAllowed)
             {
-                bool isSubjectAlreadyAssigned = students[studentToUpdate].ContainsKey(subject);
+                bool isSubjectAlreadyAssigned = assignedSubjects.ContainsKey(subject);
                 if (!isSubjectAlreadyAssigned)
                 {
-                    students[studentToUpdate].Add(subject, new List<int>());
+                    assignedSubjects.Add(subject, grades);
+                    students[studentToUpdate] = new Dictionary<string, List<double>>()
+                    {
+                        { subject, grades }
+                    };
                     Console.WriteLine($"Student {studentToUpdate} was successfully enrolled in the {subject} class.");
                 }
                 else
@@ -77,11 +82,41 @@ class Students
 
     public void AssignGradesToStudent()
     {
-        string studentToUGrade = userInput.InputStudentName();
-        string subjectToGrade = userInput.InputSubject();
-        List<double> grades = userInput.InputGrade();
-        //Add assignment logic
-        Console.WriteLine($"Student {studentToUGrade} has successfully been assigned a grade of {grades} for the {subjectToGrade} class.");
+        Console.WriteLine("Please enter the name of the student you want to grade: ");
+        string studentToGrade = userInput.InputStudentName();
+        bool studentExists = students.ContainsKey(studentToGrade);
+        
+        if (studentExists)
+        {
+            Console.WriteLine("Please enter the subject you want to add grades to: ");
+            string subjectToGrade = userInput.InputSubject();
+            bool isSubjectAllowed = subjects.CheckIfSubjectIsAllowed(subjectToGrade);
+            if (isSubjectAllowed)
+            {
+                bool isSubjectAssigned = students[studentToGrade].ContainsKey(subjectToGrade);
+                if (isSubjectAssigned)
+                {
+                    //students[studentToUpdate].Add(subject, new List<int>());
+                    grades = userInput.InputGrade();
+                    //students[studentToGrade].s
+                    Console.WriteLine($"Student {studentToGrade} was successfully enrolled in the.");
+                }
+                else
+                {
+                    //Console.WriteLine($"Student {studentToGrade} is not assigned to subject: {subject}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid subject you want to assign: \"Math\", \"Biology\", \"History\", \"English\", \"Sport\", \"Physics\"");
+            }
+            
+        }
+        else
+        {
+            //Console.WriteLine($"Student {studentToUpdate} doesn't exist.");
+        }
+        //Console.WriteLine($"Student {studentToUGrade} has successfully been assigned a grade of {grades} for the {subjectToGrade} class.");
     }
 
     public void CalculateAverageGrade(Dictionary<string, Dictionary<string, List<int>>> students)
@@ -92,7 +127,7 @@ class Students
     public void DisplayAllStudents()
     {
         //Add logic to display all students, their subjects and the average grade
-        CalculateAverageGrade(students);
+        //CalculateAverageGrade(students);
         Console.WriteLine(students);
     }
     
