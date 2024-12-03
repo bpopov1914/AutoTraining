@@ -55,11 +55,9 @@ class Students
                 bool isSubjectAlreadyAssigned = assignedSubjects.ContainsKey(subject);
                 if (!isSubjectAlreadyAssigned)
                 {
-                    assignedSubjects.Add(subject, grades);
-                    students[studentToUpdate] = new Dictionary<string, List<double>>()
-                    {
-                        { subject, grades }
-                    };
+                    assignedSubjects.Add(subject, new List<double>());
+                    students[studentToUpdate] = new Dictionary<string, List<double>>();
+                    students[studentToUpdate][subject] = new List<double>(grades);
                     Console.WriteLine($"Student {studentToUpdate} was successfully enrolled in the {subject} class.");
                 }
                 else
@@ -96,14 +94,13 @@ class Students
                 bool isSubjectAssigned = students[studentToGrade].ContainsKey(subjectToGrade);
                 if (isSubjectAssigned)
                 {
-                    //students[studentToUpdate].Add(subject, new List<int>());
                     grades = userInput.InputGrade();
-                    //students[studentToGrade].s
-                    Console.WriteLine($"Student {studentToGrade} was successfully enrolled in the.");
+                    assignedSubjects[subjectToGrade].AddRange(grades);
+                    Console.WriteLine($"Student {studentToGrade}: Subject: {subjectToGrade}: Grades: " + string.Join(", ", grades));
                 }
                 else
                 {
-                    //Console.WriteLine($"Student {studentToGrade} is not assigned to subject: {subject}");
+                    Console.WriteLine($"Student {studentToGrade} is not assigned to subject: {subjectToGrade}");
                 }
             }
             else
@@ -114,21 +111,48 @@ class Students
         }
         else
         {
-            //Console.WriteLine($"Student {studentToUpdate} doesn't exist.");
+            Console.WriteLine($"Student {studentToGrade} doesn't exist.");
         }
-        //Console.WriteLine($"Student {studentToUGrade} has successfully been assigned a grade of {grades} for the {subjectToGrade} class.");
+        
     }
 
-    public void CalculateAverageGrade(Dictionary<string, Dictionary<string, List<int>>> students)
+    public double CalculateAverageGrade(Dictionary<string, Dictionary<string, List<double>>> students)
     {
-        //Add logic to calculate the final grade
+        double averageGrade = 0;
+        foreach (var student in students)
+        {
+            double totalGrades = 0;
+            int totalSubjects = 0;
+
+            foreach (var subject in student.Value)
+            {
+                List<double> grades = subject.Value;
+                totalGrades = totalGrades + grades.Sum();
+                totalSubjects = totalSubjects + grades.Count;
+            }
+
+            if (totalSubjects > 0)
+            {
+                averageGrade = totalGrades / totalSubjects;
+            }
+            else
+            {
+                averageGrade = 0;
+            }
+        }
+
+        return averageGrade;
     }
 
     public void DisplayAllStudents()
     {
-        //Add logic to display all students, their subjects and the average grade
-        //CalculateAverageGrade(students);
-        Console.WriteLine(students);
+        double averageGrade = CalculateAverageGrade(students);
+
+        foreach (var student in students)
+        {
+            string subjects = string.Join(", ", student.Value);
+            Console.WriteLine($"{student.Key}, Subjects: {subjects} \nAverage Grade: {averageGrade:F2}");
+        }
     }
     
 }
