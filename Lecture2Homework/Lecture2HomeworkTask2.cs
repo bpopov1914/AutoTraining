@@ -1,9 +1,9 @@
-namespace AutoTrainingConsoleApp;
+namespace AutoTrainingConsoleApp.Lecture2Homework;
 
 public class Lecture2HomeworkTask2
 {
     //Task 2: Format a Full Name
-    
+
     //Variables initialization
     static string firstName = "";
     static string lastName = "";
