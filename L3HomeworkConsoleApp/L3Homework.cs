@@ -1,4 +1,5 @@
 ﻿using AutoTrainingConsoleApp.L3HomeworkConsoleApp.Lecture3Homework;
+using L3HomeworkConsoleApp.Lecture3Homework;
 
 namespace L3HomeworkConsoleApp;
 
@@ -16,21 +17,21 @@ class L3Homework
         //Task 2: Fishing Trip
         var fishingTrip = new Lecture3HomeworkTask2();
         bool budgetInRange = fishingTrip.InputGroupBudget();
-        //Stop further execution if budget not in range
         if (!budgetInRange)
         {
+            //Stop further execution if budget not in range
             return;
         }
         bool isSeasonValid = fishingTrip.InputSeason();
-        //Stop further execution if season is not valid
         if (!isSeasonValid)
         {
+            //Stop further execution if season is not valid
             return;
         }
         bool isNumOfPeopleInRange = fishingTrip.InputNumOfFisherman();
-        //Stop further execution if number of fisherman not in range
         if (!isNumOfPeopleInRange)
         {
+            //Stop further execution if number of fisherman not in range
             return;
         }
         fishingTrip.DeterminePriceBasedOnSeason();
@@ -40,15 +41,15 @@ class L3Homework
         //Task 3: Salary Deduction
         var salaryDeduction = new Lecture3Homework.Lecture3HomeworkTask3();
         bool isNumOfTabsInRange = salaryDeduction.InputNumOfTabs();
-        //Stop further execution if number of tabs not in range
         if (!isNumOfTabsInRange) 
         {
+            //Stop further execution if number of tabs not in range
             return;
         }
         bool isSalaryInRange = salaryDeduction.InputSalary();
-        //Stop further execution if salary not in range
         if (!isSalaryInRange)
         {
+            //Stop further execution if salary not in range
             return;
         }
         salaryDeduction.CheckWebsites();
@@ -56,5 +57,9 @@ class L3Homework
         //Task 4: Steps to reach goal
         var stepsToReachGoal = new Lecture3HomeworkTask4();
         stepsToReachGoal.EnterSteps();
+        
+        //Task5: Birthday Cake
+        var cakePieces = new Lecture3HomeworkTask5();
+        cakePieces.TakeCakePieces();
     }
 }
