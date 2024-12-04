@@ -61,5 +61,9 @@ class L3Homework
         //Task5: Birthday Cake
         var cakePieces = new Lecture3HomeworkTask5();
         cakePieces.TakeCakePieces();
+        
+        //Task6: Password Generator
+        var passGenerator = new Lecture3HomeworkTask6();
+        passGenerator.GeneratePassword();
     }
 }
