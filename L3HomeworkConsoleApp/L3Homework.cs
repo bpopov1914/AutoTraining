@@ -1,4 +1,6 @@
-﻿namespace L3HomeworkConsoleApp;
+﻿using AutoTrainingConsoleApp.L3HomeworkConsoleApp.Lecture3Homework;
+
+namespace L3HomeworkConsoleApp;
 
 class L3Homework
 {
@@ -50,5 +52,9 @@ class L3Homework
             return;
         }
         salaryDeduction.CheckWebsites();
+        
+        //Task 4: Steps to reach goal
+        var stepsToReachGoal = new Lecture3HomeworkTask4();
+        stepsToReachGoal.EnterSteps();
     }
 }
