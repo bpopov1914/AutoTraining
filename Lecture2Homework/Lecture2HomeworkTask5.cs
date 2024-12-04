@@ -1,11 +1,11 @@
-namespace AutoTrainingConsoleApp;
+namespace AutoTrainingConsoleApp.Lecture2Homework;
 
 public class Lecture2HomeworkTask5
 {
     //Task 5: Validate Age Input
-    
+
     //Variables initialization
-    static int age = 0; 
+    static int age = 0;
     static string ageInput = "";
     static bool isAgeValid = false;
 
@@ -35,7 +35,7 @@ public class Lecture2HomeworkTask5
         }
         else
         {
-                Console.WriteLine("Invalid age entered.");
+            Console.WriteLine("Invalid age entered.");
         }
         Console.WriteLine("-------------End of Task 5-------------");
     }
