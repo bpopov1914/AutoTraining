@@ -1,4 +1,4 @@
-namespace Lecture10Exercise.Entities;
+namespace Lecture10Exercise.Entities.Members;
 
 public class Member
 {
