@@ -1,9 +1,9 @@
 ﻿namespace Lecture10Exercise;
 
-class Program
+class Lecture10Exercise
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        
     }
 }
