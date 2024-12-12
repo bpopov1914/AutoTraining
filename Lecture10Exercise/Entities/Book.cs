@@ -1,3 +1,5 @@
+using Lecture10Exercise.Entities.Members;
+
 namespace Lecture10Exercise.Entities;
 
 public class Book
