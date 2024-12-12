@@ -7,7 +7,7 @@ public class StaffMember : Member
     private string _membershipType;
     private int _maxBooksToBorrow = 10;
     
-    public StaffMember(string name, int memberId, string membershipType) : base(name, memberId, membershipType)
+    public StaffMember(string name, int memberId, string membershipType) : base()
     {
         _staffName = name;
         _memberId = memberId;

@@ -8,7 +8,7 @@ public class StudentMember : Member
     private int _maxBooksToBorrow = 5; 
     List<Book> books = new();
     
-    public StudentMember(string name, int memberId, string membershipType) : base(name, memberId, membershipType)
+    public StudentMember(string name, int memberId, string membershipType) : base()
     {
         _studentName = name;
         _memberId = memberId;
