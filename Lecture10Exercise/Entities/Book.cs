@@ -40,6 +40,11 @@ public class Book
     {
         get { return _availableCopies; }
     }
+
+    public bool IsBookAvailable
+    {
+        get { return isBookAvailable; }
+    }
     
 
     public void BorrowBook()

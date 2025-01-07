@@ -2,59 +2,34 @@ namespace Lecture10Exercise.Entities.Members;
 
 public class StaffMember : Member
 {
-    private string _staffName;
-    private int _memberId;
-    private string _membershipType;
-    private int _maxBooksToBorrow = 10;
-    public List<Book> Books = new ();
+    public List<Book> StaffBooks = new ();
     
-    public StaffMember(string name, int memberId, string membershipType)
+    public StaffMember(string name, int memberId) : base()
     {
-        _staffName = name;
-        _memberId = memberId;
-        _membershipType = membershipType;
-    }
-
-    public string StaffName
-    {
-        get { return _staffName; }
-        set { _staffName = value; }
-    }
-
-    public int MemberId
-    {
-        get { return _memberId; }
-        set { _memberId = value; }
-    }
-
-    public string MembershipType
-    {
-        get { return _membershipType; }
-        set { _membershipType = value; }
-    }
-
-    public int MaxBooksToBorrow
-    {
-        get { return _maxBooksToBorrow; }
-    }
-   
-    public override bool CanMemberBorrowBook()
-    {
-        return MaxBooksToBorrow > Books.Count;
+        MemberName = name;
+        MemberId = memberId;
+        MembershipType = "Staff";
+        MaxBooksToBorrow = 10;
     }
 
     public override void BorrowBook(Book book)
     {
-        Books.Add(book);
+        if (MaxBooksToBorrow > BooksBorrowed)
+        {
+            StaffBooks.Add(book);
+            BooksBorrowed++;
+            Console.WriteLine($"{base.ToString()} borrowed the book \"{book.Title}\". Books borrowed: {BooksBorrowed}/{MaxBooksToBorrow}.");
+        }
+        else
+        {
+            Console.WriteLine($"{MemberName} has reached the limit of {MaxBooksToBorrow} borrowed from the library.");
+        }
+        
     }
 
     public override void ReturnBook(Book book)
     {
-        Books.Remove(book);
+        StaffBooks.Remove(book);
     }
     
-    public override string ToString()
-    {
-        return $"{StaffName} ({MembershipType})";
-    }
 }

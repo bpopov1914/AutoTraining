@@ -1,61 +1,37 @@
+using System.Runtime.CompilerServices;
+
 namespace Lecture10Exercise.Entities.Members;
 
 public class StudentMember : Member
 {
-    private string _studentName;
-    private int _memberId;
-    private string _membershipType;
-    private int _maxBooksToBorrow = 5;
-    private bool canMemberBorrowBook;
-    public List<Book> Books = new ();
+    public List<Book> StudentBooks = new ();
     
-    public StudentMember(string name, int memberId, string membershipType) 
+    public StudentMember(string name, int memberId) :base()
     {
-        _studentName = name;
-        _memberId = memberId;
-        _membershipType = membershipType;
-    }
-
-    public string StudentName
-    {
-        get { return _studentName; }
-        set { _studentName = value; }
-    }
-
-    public int MemberId
-    {
-        get { return _memberId; }
-        set { _memberId = value; }
-    }
-
-    public string MembershipType
-    {
-        get { return _membershipType; }
-        set { _membershipType = value; }
-    }
-
-    public int MaxBooksToBorrow
-    {
-        get { return _maxBooksToBorrow; }
+        MemberName = name;
+        MemberId = memberId;
+        MembershipType = "Student";
+        MaxBooksToBorrow = 5;
     }
     
-    public override bool CanMemberBorrowBook()
-    {
-        return MaxBooksToBorrow > Books.Count;
-    }
 
     public override void BorrowBook(Book book)
     {
-        Books.Add(book);
+        if (MaxBooksToBorrow > BooksBorrowed)
+        {
+            StudentBooks.Add(book);
+            BooksBorrowed++;
+            Console.WriteLine($"{base.ToString()} borrowed the book \"{book.Title}\". Books borrowed: {BooksBorrowed}/{MaxBooksToBorrow}.");
+        }
+        else
+        {
+            Console.WriteLine($"{MemberName} has reached the limit of {MaxBooksToBorrow} borrowed from the library.");
+        }
     }
 
     public override void ReturnBook(Book book)
     {
-        Books.Remove(book);
+        StudentBooks.Remove(book);
     }
-
-    public override string ToString()
-    {
-        return $"{StudentName} ({MembershipType})";
-    }
+    
 }
