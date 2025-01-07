@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrainingConsoleApp", "AutoTrainingConsoleApp.csproj", "{3B75B9EB-55A6-4C4A-8959-24E060C1DA49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L3HomeworkConsoleApp", "L3HomeworkConsoleApp\L3HomeworkConsoleApp.csproj", "{F4D8B925-2EC6-47FD-87E8-2CCF76735A23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L6Exercise", "L6Exercise\L6Exercise.csproj", "{6F60333F-DE38-47E8-A70D-FD34F6FA85D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{3B75B9EB-55A6-4C4A-8959-24E060C1DA49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B75B9EB-55A6-4C4A-8959-24E060C1DA49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B75B9EB-55A6-4C4A-8959-24E060C1DA49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4D8B925-2EC6-47FD-87E8-2CCF76735A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4D8B925-2EC6-47FD-87E8-2CCF76735A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4D8B925-2EC6-47FD-87E8-2CCF76735A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4D8B925-2EC6-47FD-87E8-2CCF76735A23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F60333F-DE38-47E8-A70D-FD34F6FA85D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F60333F-DE38-47E8-A70D-FD34F6FA85D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F60333F-DE38-47E8-A70D-FD34F6FA85D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F60333F-DE38-47E8-A70D-FD34F6FA85D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
