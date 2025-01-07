@@ -39,31 +39,30 @@ public class Book
     public int AvailableCopies
     {
         get { return _availableCopies; }
-        set { _availableCopies = value; }
     }
     
 
     public void BorrowBook()
     {
+        isBookAvailable = CheckIfBookIsAvailable();
         if (isBookAvailable)
         {
-            AvailableCopies--;
-            Console.WriteLine($"Book {Title} is borrowed.");
+            _availableCopies--;
         }
         else
         {
-            Console.WriteLine($"Book {Title} is not available");
+            Console.WriteLine($"Book \"{Title}\" by {Author} is not available.");
         }
     }
 
     public void ReturnBook()
     {
-        AvailableCopies++;
+        _availableCopies++;
     }
 
-    public bool CheckIfBookIsAvailable()
+    private bool CheckIfBookIsAvailable()
     {
-        return AvailableCopies > 0;
+        return _availableCopies > 0;
     }
     
 }

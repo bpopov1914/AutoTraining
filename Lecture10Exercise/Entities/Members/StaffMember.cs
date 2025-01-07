@@ -42,6 +42,16 @@ public class StaffMember : Member
     {
         return MaxBooksToBorrow > Books.Count;
     }
+
+    public override void BorrowBook(Book book)
+    {
+        Books.Add(book);
+    }
+
+    public override void ReturnBook(Book book)
+    {
+        Books.Remove(book);
+    }
     
     public override string ToString()
     {

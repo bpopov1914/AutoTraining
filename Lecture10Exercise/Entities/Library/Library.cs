@@ -8,40 +8,35 @@ public class Library : LibraryManagement
     public override void AddBookToLibrary(Book book)
     {
         libraryBooks.Add(book);
-        Console.WriteLine($"Book \"{book.Title}\"-{book.Author} was successfully added to the library.");
+        Console.WriteLine($"Book \"{book.Title}\" by {book.Author} was successfully added to the library.");
     }
 
     public override void RemoveBookFromLibrary(Book book)
     {
         libraryBooks.Remove(book);
-        Console.WriteLine($"Book \"{book.Title}\"-{book.Author} was successfully removed from the library.");
+        Console.WriteLine($"Book \"{book.Title}\" by {book.Author} was successfully removed from the library.");
     }
 
     public override void BorrowBookByMember(Member member, Book book)
     {
         bool canMemberBorrowBook = member.CanMemberBorrowBook();
-        bool isBookAvailable = book.CheckIfBookIsAvailable();
-        if (canMemberBorrowBook && isBookAvailable)
+        if (canMemberBorrowBook)
         {
-            book.AvailableCopies--;
-            member.Books.Add(book);
-            Console.WriteLine($"{member} borrowed the book \"{book.Title}\" - {book.Author}.");
+            book.BorrowBook();
+            member.BorrowBook(book);
+            Console.WriteLine($"{member} borrowed the book \"{book.Title}\". Books borrowed: {member.Books.Count}/{member.MaxBooksToBorrow}.");
         }
-        else if (!canMemberBorrowBook && isBookAvailable)
+        else
         {
-            Console.WriteLine($"{member} was reached the limit of {member.MaxBooksToBorrow} borrowed from the library.");
-        }
-        else if (canMemberBorrowBook && !isBookAvailable)
-        {
-            Console.WriteLine($"Book \"{book.Title}\"-{book.Author} is not available");
+            Console.WriteLine($"{member} has reached the limit of {member.MaxBooksToBorrow} borrowed from the library.");
         }
     }
 
     public override void ReturnBookByMember(Member member, Book book)
     {
-        member.Books.Remove(book);
-        book.AvailableCopies++;
-        Console.WriteLine($"{member} returned the book \"{book.Title}\" - {book.Author}.");
+        member.ReturnBook(book);
+        book.ReturnBook();
+        Console.WriteLine($"{member} returned the book \"{book.Title}\" - {book.Author}. Copies available: {book.AvailableCopies}.");
     }
     
     

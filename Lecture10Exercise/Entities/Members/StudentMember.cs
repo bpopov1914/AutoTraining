@@ -5,7 +5,8 @@ public class StudentMember : Member
     private string _studentName;
     private int _memberId;
     private string _membershipType;
-    private int _maxBooksToBorrow = 5; 
+    private int _maxBooksToBorrow = 5;
+    private bool canMemberBorrowBook;
     public List<Book> Books = new ();
     
     public StudentMember(string name, int memberId, string membershipType) 
@@ -42,7 +43,17 @@ public class StudentMember : Member
     {
         return MaxBooksToBorrow > Books.Count;
     }
-    
+
+    public override void BorrowBook(Book book)
+    {
+        Books.Add(book);
+    }
+
+    public override void ReturnBook(Book book)
+    {
+        Books.Remove(book);
+    }
+
     public override string ToString()
     {
         return $"{StudentName} ({MembershipType})";

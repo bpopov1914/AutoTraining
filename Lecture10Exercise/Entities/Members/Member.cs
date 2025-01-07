@@ -9,5 +9,6 @@ public abstract class Member
     public List<Book> Books;
 
     public abstract bool CanMemberBorrowBook();
-
+    public abstract void BorrowBook(Book book);
+    public abstract void ReturnBook(Book book);
 }
