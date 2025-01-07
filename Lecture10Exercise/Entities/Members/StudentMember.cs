@@ -6,40 +6,45 @@ public class StudentMember : Member
     private int _memberId;
     private string _membershipType;
     private int _maxBooksToBorrow = 5; 
-    List<Book> books = new();
+    public List<Book> Books = new ();
     
-    public StudentMember(string name, int memberId, string membershipType) : base()
+    public StudentMember(string name, int memberId, string membershipType) 
     {
         _studentName = name;
         _memberId = memberId;
         _membershipType = membershipType;
     }
 
-    string StudentName
+    public string StudentName
     {
         get { return _studentName; }
         set { _studentName = value; }
     }
 
-    int MemberId
+    public int MemberId
     {
         get { return _memberId; }
         set { _memberId = value; }
     }
 
-    string MembershipType
+    public string MembershipType
     {
         get { return _membershipType; }
         set { _membershipType = value; }
     }
 
-    int MaxBooksToBorrow
+    public int MaxBooksToBorrow
     {
         get { return _maxBooksToBorrow; }
     }
-
-    public bool canStudentBorrowBook()
+    
+    public override bool CanMemberBorrowBook()
     {
-        return MaxBooksToBorrow > books.Count;
+        return MaxBooksToBorrow > Books.Count;
+    }
+    
+    public override string ToString()
+    {
+        return $"{StudentName} ({MembershipType})";
     }
 }

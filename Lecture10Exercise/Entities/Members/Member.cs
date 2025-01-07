@@ -2,15 +2,12 @@ namespace Lecture10Exercise.Entities.Members;
 
 public abstract class Member
 {
-    string _memberName;
-    int _memberId; 
-    string _membershipType;
-    
-    
+    public string MemberName;
+    public int MemberId; 
+    public string MembershipType;
+    public int MaxBooksToBorrow; 
+    public List<Book> Books;
 
-    // public override string ToString()
-    // {
-    //     return $"{MemberName} ({MembershipType})";
-    // }
-    
+    public abstract bool CanMemberBorrowBook();
+
 }

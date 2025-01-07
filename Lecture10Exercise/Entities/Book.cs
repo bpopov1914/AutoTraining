@@ -18,25 +18,25 @@ public class Book
         _availableCopies = availableCopies;
     }
 
-    string Title
+    public string Title
     {
         get { return _title; }
         set { _title = value; }
     }
 
-    string Author
+    public string Author
     {
         get { return _author; }
         set { _author = value; }
     }
 
-    string ISBN
+    public string ISBN
     {
         get { return _isbn; }
         set { _isbn = value; }
     }
 
-    int AvailableCopies
+    public int AvailableCopies
     {
         get { return _availableCopies; }
         set { _availableCopies = value; }
@@ -45,7 +45,6 @@ public class Book
 
     public void BorrowBook()
     {
-        isBookAvailable = CheckIfBookIsAvailable();
         if (isBookAvailable)
         {
             AvailableCopies--;
@@ -62,9 +61,8 @@ public class Book
         AvailableCopies++;
     }
 
-    private bool CheckIfBookIsAvailable()
+    public bool CheckIfBookIsAvailable()
     {
-        
         return AvailableCopies > 0;
     }
     
