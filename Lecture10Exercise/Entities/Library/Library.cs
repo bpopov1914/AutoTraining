@@ -4,7 +4,7 @@ namespace Lecture10Exercise.Entities.Library;
 
 public class Library : LibraryManagement
 {
-    List<Book> libraryBooks = new();
+    public List<Book> libraryBooks = new();
     public override void AddBookToLibrary(Book book)
     {
         libraryBooks.Add(book);
@@ -14,7 +14,7 @@ public class Library : LibraryManagement
     public override void RemoveBookFromLibrary(Book book)
     {
         libraryBooks.Remove(book);
-        Console.WriteLine($"Book \"{book.Title}\" by {book.Author} was successfully removed from the library. Copies available: {book.AvailableCopies}.");
+        Console.WriteLine($"Book \"{book.Title}\" by {book.Author} was successfully removed from the library.");
     }
 
     public override void BorrowBookByMember(Member member, Book book)

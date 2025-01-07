@@ -27,17 +27,34 @@ class Lecture10Exercise
         library.AddBookToLibrary(book5);
         library.AddBookToLibrary(book6);
         
-        library.BorrowBookByMember(student1, book1); //Add successfully 
-        library.BorrowBookByMember(student2, book2); //Add successfully 
-        library.BorrowBookByMember(student1, book2); //No book copies available
-        library.BorrowBookByMember(student1, book1); //Add successfully 
-        library.BorrowBookByMember(student1, book3); //Add successfully 
-        library.BorrowBookByMember(student1, book4); //Add successfully 
-        library.BorrowBookByMember(student1, book5); //Add successfully 
-        library.BorrowBookByMember(student1, book5); //Student reached max books to borrow
-        library.BorrowBookByMember(staff1, book5); //Add successfully 
-        library.BorrowBookByMember(staff1, book6); //Add successfully 
-        library.BorrowBookByMember(staff2, book5); //Add successfully 
+        library.BorrowBookByMember(student1, library.libraryBooks[0]); //Borrow Book 1 successfully 
+        library.BorrowBookByMember(student2, library.libraryBooks[1]); //Borrow Book 2 successfully 
+        library.BorrowBookByMember(student1, library.libraryBooks[1]); //No Book 2 copies available
+        library.BorrowBookByMember(student1, library.libraryBooks[0]); //Borrow Book 1 successfully 
+        library.BorrowBookByMember(student1, library.libraryBooks[2]); //Borrow Book 3 successfully 
+        library.BorrowBookByMember(student1, library.libraryBooks[3]); //Borrow Book 4 successfully 
+        library.BorrowBookByMember(student1, library.libraryBooks[4]); //Borrow Book 5 successfully 
+        library.BorrowBookByMember(student1, library.libraryBooks[4]); //Student reached max books to borrow
+        library.BorrowBookByMember(staff1, library.libraryBooks[4]); //Borrow Book 5 successfully 
+        library.BorrowBookByMember(staff1, library.libraryBooks[5]); //Borrow Book 6 successfully 
+        library.BorrowBookByMember(staff2, library.libraryBooks[4]); //Borrow Book 5 successfully 
+        
+        library.ReturnBookByMember(student1, book1);
+        library.ReturnBookByMember(student1, book1);
+        library.ReturnBookByMember(student2, book2);
+        library.ReturnBookByMember(student1, book3);
+        library.ReturnBookByMember(student1, book4);
+        library.ReturnBookByMember(student1, book5);
+        library.ReturnBookByMember(student1, book5);
+        library.ReturnBookByMember(staff1, book5);
+        library.ReturnBookByMember(staff1, book6);
+        
+        library.RemoveBookFromLibrary(book1);
+        library.RemoveBookFromLibrary(book2);
+        library.RemoveBookFromLibrary(book3);
+        library.RemoveBookFromLibrary(book4);
+        library.RemoveBookFromLibrary(book5);
+        library.RemoveBookFromLibrary(book6);
         
     }
 }
