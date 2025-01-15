@@ -1,3 +1,5 @@
+using L11Homework.Interfaces;
+
 namespace L11Homework.Models;
 
 public class Order
@@ -27,4 +29,5 @@ public class Order
         get { return _orderDate;} 
         set { _orderDate = value;}
     }
+    
 }

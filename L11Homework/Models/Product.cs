@@ -1,3 +1,5 @@
+using L11Homework.Interfaces;
+
 namespace L11Homework.Models;
 
 public class Product
@@ -27,4 +29,5 @@ public class Product
         get { return _stock;} 
         set { _stock = value;}
     }
+    
 }
