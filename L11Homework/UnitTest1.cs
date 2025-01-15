@@ -1,3 +1,5 @@
+using Npgsql;
+
 namespace L11Homework;
 
 public class Tests
@@ -10,6 +12,14 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Assert.Pass();
+        Database.Database databaseConnection = new Database.Database();
+        using (var connection = new NpgsqlConnection(databaseConnection.connectionString))
+        {
+            connection.Open();
+
+            // Assert
+            Assert.That(System.Data.ConnectionState.Open, Is.EqualTo(connection.State));
+        }
+        //Assert.Pass();
     }
 }
