@@ -5,7 +5,7 @@ namespace L11Homework.Repositories;
 
 public class ProductRepository : IProductRepository
 {
-    private Product[] _products;
+    private Product[] _products = new Product[0];
     
     public IEnumerable<Product> GetAllProducts()
     {
@@ -19,7 +19,7 @@ public class ProductRepository : IProductRepository
 
     public void AddProduct(Product product)
     {
-        throw new NotImplementedException();
+        _products.Append(product);
     }
 
     public void UpdateProduct(Product product)
