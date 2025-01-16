@@ -9,6 +9,17 @@ public class Product
     private double _price;
     private int _stock;
 
+    public Product()
+    {
+        
+    }
+    public Product(int productId, string name, double price, int stock)
+    {
+        _productId = productId;
+        _name = name;
+        _price = price;
+        _stock = stock;
+    }
     public int ProductId
     {
         get { return _productId;} 
