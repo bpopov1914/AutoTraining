@@ -4,7 +4,7 @@ using Npgsql;
 
 namespace L11Homework;
 
-public class Tests
+public class BasicTests
 {
     ProductService productService = new();
     
