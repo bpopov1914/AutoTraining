@@ -28,7 +28,6 @@ public class ProductService : ProductRepository
     public void InsertProduct(int productId, string name, double price, int stock)
     {
         Product product = new(productId, name, price, stock);
-        
         productRepo.AddProduct(product);
     }
 }
