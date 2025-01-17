@@ -6,16 +6,9 @@ public class Employee
 {
     private string _fullName;
     private string _country;
-    private List<string> _departments;
-    private double _salary;
-
-    public Employee(string fullName, string country, double salary)
-    {
-        _fullName = fullName;
-        _country = country;
-        _salary = salary;
-    }
-
+    private List<string> _departments = new();
+    private decimal _salary;
+   
     public string FullName
     {
         get{return _fullName;}
@@ -28,17 +21,16 @@ public class Employee
         set{_country = value;}
     }
 
-    public double Salary
+    public decimal Salary
     {
         get{return _salary;}
         set{_salary = value;}
     }
 
-    public void AssignDepartments(List<string> departments)
+    public List<string> Departments
     {
-        foreach (var department in departments)
-        {
-            _departments.Add(department);
-        }
+        get{return _departments;}
+        set{_departments = value;}
     }
+    
 }

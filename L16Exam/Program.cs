@@ -8,16 +8,10 @@ class Program
     static void Main(string[] args)
     { 
         Country country = new Country();
-        MainMenu mainMenu = new MainMenu();
+        Actions actions = new Actions();
         
-        country.LoadListOfCountries();
-        mainMenu.PrintMainMenu();
-
-        /*
-        This was for testing if I am recording the countries from the API properly 
-        foreach (var countryName in country.countries)
-        {
-            Console.WriteLine(countryName);
-        }*/
+        country.fullListOfCountries = country.LoadListOfCountries();
+        actions.SelectOption(country);
+        
     }
 }
