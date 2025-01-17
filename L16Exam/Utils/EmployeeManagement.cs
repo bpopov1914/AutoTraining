@@ -59,9 +59,10 @@ public class EmployeeManagement
     {
         string employeeName = userInput.InputFullName();
         bool employeeExists = DoesEmployeeExist(employeeName);
+        
         foreach (Employee employee in employees)
         {
-            if (employeeExists)
+            if (employeeExists && employee.FullName == employeeName)
             {
                 List<string> departmentsToAdd = userInput.InputDepartments();
                 foreach (var depToAdd in departmentsToAdd)
