@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture10Exercise", "Lectur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L11Homework", "L11Homework\L11Homework.csproj", "{FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L16Exam", "L16Exam\L16Exam.csproj", "{B61215BD-8EE1-464E-A04A-9BB09A93F9EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B61215BD-8EE1-464E-A04A-9BB09A93F9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B61215BD-8EE1-464E-A04A-9BB09A93F9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B61215BD-8EE1-464E-A04A-9BB09A93F9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B61215BD-8EE1-464E-A04A-9BB09A93F9EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
