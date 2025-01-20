@@ -82,4 +82,19 @@ public class OrderRepository : IOrderRepository
         }
         return order;
     }
+    
+    public void DeleteOrder(int productId)
+    {
+        string query = $"DELETE \nFROM public.\"Orders\"\nUSING public.\"Products\"\nWHERE public.\"Orders\".\"ProductId\" = public.\"Products\".\"ProductId\"\n  and public.\"Products\".\"ProductId\" = {productId}";
+
+        using (var connection = new NpgsqlConnection(database.connectionString))
+        {
+            connection.Open();
+            using (var command = new NpgsqlCommand(query, connection))
+            {
+                int rowsAffected = command.ExecuteNonQuery();
+                Console.WriteLine($"{rowsAffected} row(s) deleted.");
+            }
+        }
+    }
 }

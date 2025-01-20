@@ -46,4 +46,9 @@ public class OrderService
       }
         
    }
+
+   public void DeleteOrder(int orderId)
+   {
+      orderRepo.DeleteOrder(orderId);
+   }
 }

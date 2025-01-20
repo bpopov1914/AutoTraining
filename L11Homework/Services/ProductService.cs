@@ -42,6 +42,16 @@ public class ProductService : ProductRepository
         productRepo.DeleteProduct(productId);
     }
 
+    public bool IsProductInStock(int productId)
+    {
+        bool isProductInStock = false;
+        var product = productRepo.GetProductById(productId);
+        if (product.Stock > 0)
+        {
+            isProductInStock = true;
+        }
+        return isProductInStock;
+    }
     public void PrintLastProduct()
     {
         var product = productRepo.GetAllProducts().Last();
