@@ -30,4 +30,18 @@ public class ProductService : ProductRepository
         Product product = new(productId, name, price, stock);
         productRepo.AddProduct(product);
     }
+
+    public void UpdateProduct(int productId, string name, double price, int stock)
+    {
+        Product product = productRepo.GetProductById(productId);
+        product.Name = name;
+        product.Price = price;
+        product.Stock = stock;
+        productRepo.UpdateProduct(product);
+    }
+
+    public void DeleteProduct(int productId)
+    {
+        productRepo.DeleteProduct(productId);
+    }
 }

@@ -7,10 +7,11 @@ namespace L11Homework.Repositories;
 
 public class ProductRepository : IProductRepository
 {
-    private Product[] _products = new Product[0];
+    //private Product[] _products = new Product[0];
     private Database.Database database = new();
     public IEnumerable<Product> GetAllProducts()
     {
+        Product[] _products = new Product[0];
         string query = "SELECT * FROM public.\"Products\"\nORDER BY \"ProductId\" ASC";
         using (var connection = new NpgsqlConnection(database.connectionString))
         {
@@ -83,11 +84,30 @@ public class ProductRepository : IProductRepository
 
     public void UpdateProduct(Product product)
     {
-        throw new NotImplementedException();
+        string query = $"UPDATE public.\"Products\"\nSET \"Name\" = '{product.Name}',\n    \"Price\" = {product.Price},\n    \"Stock\" = {product.Stock}\nWHERE \"ProductId\" = {product.ProductId};";
+        using (var connection = new NpgsqlConnection(database.connectionString))
+        {
+            connection.Open();
+            using (var command = new NpgsqlCommand(query, connection))
+            {
+                int rowsAffected = command.ExecuteNonQuery();
+                Console.WriteLine($"{rowsAffected} row(s) updated.");
+            }
+        }
     }
 
     public void DeleteProduct(int productId)
     {
-        throw new NotImplementedException();
+        string query = $"DELETE FROM public.\"Products\"\nWHERE \"ProductId\" = {productId}";
+
+        using (var connection = new NpgsqlConnection(database.connectionString))
+        {
+            connection.Open();
+            using (var command = new NpgsqlCommand(query, connection))
+            {
+                int rowsAffected = command.ExecuteNonQuery();
+                Console.WriteLine($"{rowsAffected} row(s) deleted.");
+            }
+        }
     }
 }
