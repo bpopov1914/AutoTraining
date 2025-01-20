@@ -14,6 +14,13 @@ public class OrderService
       var orders = orderRepo.GetOrders();
       return orders;
    }
+
+   public Order GetOrderById(int orderId)
+   {
+      var order = orderRepo.GetOrderById(orderId);
+      Console.WriteLine($"OrderId: {order.OrderId}, ProductId: {order.ProductId}, Quantity: {order.Quantity}, OrderDate: {order.OrderDate}");
+      return order;
+   }
    
    public void PlaceOrder(Product product, int orderId, int quantity, DateTime orderDate)
    {

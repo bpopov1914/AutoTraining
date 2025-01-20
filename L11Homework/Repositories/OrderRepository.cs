@@ -60,6 +60,26 @@ public class OrderRepository : IOrderRepository
 
     public Order GetOrderById(int orderId)
     {
-        throw new NotImplementedException();
+        var order = new Order();
+
+        string query = $"SELECT * FROM public.\"Orders\"\nWHERE \"OrderId\" = {orderId}";
+        using (var connection = new NpgsqlConnection(database.connectionString))
+        {
+            connection.Open();
+            using (var command = new NpgsqlCommand(query, connection))
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        order.OrderId = reader.GetInt32(0);
+                        order.ProductId = reader.GetInt32(1); 
+                        order.Quantity = reader.GetInt32(2);
+                        order.OrderDate = reader.GetDateTime(3);
+                    }
+                }
+            }
+        }
+        return order;
     }
 }

@@ -10,11 +10,6 @@ public class BasicTests
     ProductService productService = new();
     OrderService orderService = new();
     
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [Test]
     public void GetAllProducts()
     {
@@ -36,8 +31,6 @@ public class BasicTests
             Assert.That(product.ProductId, Is.EqualTo(productId));
             Assert.That(product.Name, Is.EqualTo(name));
         });
-
-
     }
 
     [Test]
@@ -129,7 +122,7 @@ public class BasicTests
     }
     
     [Test]
-    //[TestCase("Tablet")]
+    [TestCase("Tablet")]
     [TestCase("Smartphone")]
     public void PlaceOrder(string name)
     {
@@ -157,7 +150,7 @@ public class BasicTests
         }
         var newProduct = productService.GetProductById(newProductId);
         int orderId = existingOrderIds.Max() + 1;
-        int quantity = rand.Next(0, newProduct.Stock);
+        int quantity = rand.Next(1, newProduct.Stock);
         DateTime orderDate = DateTime.Now;
         orderService.PlaceOrder(newProduct, orderId, quantity, orderDate);
         var ordersAfterOrderPlaced = orderService.GetAllOrders().ToList();
@@ -166,5 +159,13 @@ public class BasicTests
         orderService.PrintLastOrder();
         Assert.That(ordersAfterOrderPlaced.Last().OrderId, Is.EqualTo(orderId));
         Assert.That(productsAfterOrderPlaced.Last().Stock, Is.EqualTo(productsAfterInsert.Last().Stock - quantity));
+    }
+
+    [Test]
+    [TestCase(3)]
+    public void GetOrderById(int orderId)
+    {
+        var order = orderService.GetOrderById(orderId);
+        Assert.That(order.OrderId, Is.EqualTo(orderId));
     }
 }
