@@ -6,6 +6,10 @@
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3::net8.0::L11Homework.BasicTests.DeleteProduct&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3::net8.0::L11Homework.BasicTests.UpdateProduct&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3::net8.0::L11Homework.BasicTests.PlaceOrder&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3::net8.0::L11Homework.BasicTests.AddProduct&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3::net8.0::L11Homework.BasicTests.GetProductById&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3::net8.0::L11Homework.BasicTests.GetAllProducts&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	

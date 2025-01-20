@@ -11,10 +11,7 @@ public class ProductService : ProductRepository
     public  IEnumerable<Product> GetAllProducts()
     {
         var products = productRepo.GetAllProducts();
-        foreach (var product in products)
-        {
-            Console.WriteLine($"ProductId: {product.ProductId }, Name: {product.Name}, Price: {product.Price}, Stock: {product.Stock}");
-        }
+       
         return products;
     }
 
@@ -43,5 +40,20 @@ public class ProductService : ProductRepository
     public void DeleteProduct(int productId)
     {
         productRepo.DeleteProduct(productId);
+    }
+
+    public void PrintLastProduct()
+    {
+        var product = productRepo.GetAllProducts().Last();
+        Console.WriteLine($"ProductId: {product.ProductId }, Name: {product.Name}, Price: {product.Price}, Stock: {product.Stock}");
+    }
+    public void PrintAllProducts()
+    {
+        var products = productRepo.GetAllProducts();
+        foreach (var product in products)
+        {
+            Console.WriteLine($"ProductId: {product.ProductId }, Name: {product.Name}, Price: {product.Price}, Stock: {product.Stock}");
+        }
+        
     }
 }

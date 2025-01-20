@@ -9,6 +9,17 @@ public class Order
     private int _quantity;
     private DateTime _orderDate;
 
+    public Order()
+    {
+        
+    }
+    public Order(int orderId, int productId, int quantity, DateTime orderDate)
+    {
+        _orderId = orderId;
+        _productId = productId;
+        _quantity = quantity;
+        _orderDate = orderDate;
+    }
     public int OrderId
     {
         get { return _orderId;} 
