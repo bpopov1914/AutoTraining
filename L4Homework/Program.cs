@@ -271,5 +271,48 @@ class Program
             }
         }
         Console.WriteLine("------------------- End of Task 7 --------------------");
+        
+        //Task 8: Basic Queue Operations
+        Console.WriteLine("------------------- Task 8 --------------------");
+        Console.WriteLine("Please input N, S, X " +
+                          "(Number of elements to enqueue, Number of elements to dequeue, The element to search for): ");
+        var inputNSX2 = Console.ReadLine().Split();
+        int N2 = int.Parse(inputNSX2[0]); 
+        int S2 = int.Parse(inputNSX2[1]); 
+        int X2 = int.Parse(inputNSX2[2]); 
+
+        Console.WriteLine("Please input integers (N integers): ");
+        var numbers2 = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+        Queue<int> queue = new Queue<int>();
+        for (int i = 0; i < N2; i++)
+        {
+            queue.Enqueue(numbers2[i]);
+        }
+
+        for (int i = 0; i < S2; i++)
+        {
+            if (queue.Count > 0)
+            {
+                queue.Dequeue();
+            }
+        }
+
+        if (queue.Contains(X2))
+        {
+            Console.WriteLine("true");
+        }
+        else
+        {
+            if (queue.Count > 0)
+            {
+                Console.WriteLine(queue.Min());
+            }
+            else
+            {
+                Console.WriteLine(0);
+            }
+        }
+        Console.WriteLine("------------------- End of Task 8 --------------------");
     }
 }
