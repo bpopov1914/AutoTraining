@@ -116,5 +116,48 @@ class Program
         
         Console.WriteLine(string.Join(" ", wagons));
         Console.WriteLine("------------------- End of Task 3 --------------------");
+        //Task 4: Cards Game
+        Console.WriteLine("------------------- Task 4 --------------------");
+        Console.WriteLine("Please input the first player's hand: : ");
+        List<int> firstPlayerHand = new List<int>(Array.ConvertAll(Console.ReadLine().Split(), int.Parse));
+        
+        Console.WriteLine("Please input the second player's hand: : ");
+        List<int> secondPlayerHand = new List<int>(Array.ConvertAll(Console.ReadLine().Split(), int.Parse));
+
+        while (firstPlayerHand.Count > 0 && secondPlayerHand.Count > 0)
+        {
+            int firstCard = firstPlayerHand[0];
+            int secondCard = secondPlayerHand[0];
+            
+            if (firstCard > secondCard)
+            {
+                firstPlayerHand.Add(firstCard);
+                firstPlayerHand.Add(secondCard);
+            }
+            else if (secondCard > firstCard)
+            {
+                secondPlayerHand.Add(secondCard);
+                secondPlayerHand.Add(firstCard);
+            }
+            else
+            {
+                firstPlayerHand.RemoveAt(0);
+                secondPlayerHand.RemoveAt(0);
+            }
+            
+            // Remove the cards from the front of each player's hand after playing
+            firstPlayerHand.RemoveAt(0);
+            secondPlayerHand.RemoveAt(0);
+        }
+
+        if (firstPlayerHand.Count > 0)
+        {
+            Console.WriteLine($"First player wins! Sum: {firstPlayerHand.Sum()}");
+        }
+        else
+        {
+            Console.WriteLine($"Second player wins! Sum: {secondPlayerHand.Sum()}");
+        }
+        Console.WriteLine("------------------- End of Task 4 --------------------");
     }
 }
