@@ -22,4 +22,16 @@ public class Methods
         
         return largest;
     }
+    
+    //Task 2
+    public string ReverseString(string originalString)
+    {
+        string reverseString = string.Empty;
+        for (int i = originalString.Length - 1; i >= 0; i--)
+        {
+            reverseString += originalString[i];
+        }
+
+        return reverseString;
+    }
 }
