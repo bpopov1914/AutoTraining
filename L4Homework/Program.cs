@@ -227,5 +227,49 @@ class Program
             Console.WriteLine($"{resourcePair.Key} -> {resourcePair.Value}");
         }
         Console.WriteLine("------------------- End of Task 6 --------------------");
+        
+        
+        //Task 7: Basic Stack Operations
+        Console.WriteLine("------------------- Task 7 --------------------");
+        Console.WriteLine("Please input N, S, X " +
+                          "(Number of elements to push, Number of elements to pop, The element to search for): ");
+        var inputNSX = Console.ReadLine().Split();
+        int N = int.Parse(inputNSX[0]); 
+        int S = int.Parse(inputNSX[1]); 
+        int X = int.Parse(inputNSX[2]);
+
+        Console.WriteLine("Please input integers (N integers): ");
+        var numbers = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+        Stack<int> stack = new Stack<int>();
+        for (int i = 0; i < N; i++)
+        {
+            stack.Push(numbers[i]);
+        }
+
+        for (int i = 0; i < S; i++)
+        {
+            if (stack.Count > 0)
+            {
+                stack.Pop();
+            }
+        }
+
+        if (stack.Contains(X))
+        {
+            Console.WriteLine("true");
+        }
+        else
+        {
+            if (stack.Count > 0)
+            {
+                Console.WriteLine(stack.Min());
+            }
+            else
+            {
+                Console.WriteLine(0);
+            }
+        }
+        Console.WriteLine("------------------- End of Task 7 --------------------");
     }
 }
