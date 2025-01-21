@@ -20,6 +20,8 @@ class Program
             }
         }
         Console.WriteLine("\n------------------- End of Task 1 --------------------");
+        
+        
         //Task 2: Max Sequence of Equal Elements
         Console.WriteLine("------------------- Task 2 --------------------");
         int[] intArrayOne = {2, 1, 1, 2, 3, 3, 2, 2, 2, 1};
@@ -68,6 +70,8 @@ class Program
             Console.WriteLine();
         }
         Console.WriteLine("------------------- End of Task 2 --------------------");
+        
+        
         //Task 3: Train
         Console.WriteLine("------------------- Task 3 --------------------");
         
@@ -116,6 +120,8 @@ class Program
         
         Console.WriteLine(string.Join(" ", wagons));
         Console.WriteLine("------------------- End of Task 3 --------------------");
+        
+        
         //Task 4: Cards Game
         Console.WriteLine("------------------- Task 4 --------------------");
         Console.WriteLine("Please input the first player's hand: : ");
@@ -159,5 +165,27 @@ class Program
             Console.WriteLine($"Second player wins! Sum: {secondPlayerHand.Sum()}");
         }
         Console.WriteLine("------------------- End of Task 4 --------------------");
+        
+        
+        //Task 5: Count Chars in a String
+        Console.WriteLine("------------------- Task 5 --------------------");
+        Console.WriteLine("Please enter a string: ");
+        string text = Console.ReadLine().Replace(" ", string.Empty);
+        
+        while (text.Length > 0)
+        {
+            Console.Write(text[0] + " -> ");
+            int count = 0;
+            for (int j = 0; j < text.Length; j++)
+            {
+                if (text[0] == text[j])
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count);
+            text = text.Replace(text[0].ToString(), string.Empty);
+        }
+        Console.WriteLine("------------------- End of Task 5 --------------------");
     }
 }
