@@ -187,5 +187,45 @@ class Program
             text = text.Replace(text[0].ToString(), string.Empty);
         }
         Console.WriteLine("------------------- End of Task 5 --------------------");
+        
+        
+        
+        //Task 6: A Miner Task
+        Console.WriteLine("------------------- Task 6 --------------------");
+        Console.WriteLine("Please enter resources and quantities: ");
+        Dictionary<string, int> resourcesDictionary = new();
+        
+        string command = "";
+        
+        while ((command = Console.ReadLine()) != "stop")
+        {
+            bool canBeParsed = int.TryParse(Console.ReadLine(), out int quantity);
+            if (canBeParsed && (quantity > 0 && quantity <= 2000000000))
+            {
+                if (resourcesDictionary.ContainsKey(command))
+                {
+                       resourcesDictionary[command] += quantity;
+                }
+                else
+                {
+                    resourcesDictionary.Add(command, quantity); 
+                }
+                   
+            }
+            else if (canBeParsed && (quantity <= 0 || quantity > 2000000000))
+            {
+                Console.WriteLine("Quantity must be in the range 1 -- 2000000000");
+            }
+            else
+            {
+                Console.WriteLine("Please enter valid quantity.");
+            }
+        }
+
+        foreach (var resourcePair in resourcesDictionary)
+        {
+            Console.WriteLine($"{resourcePair.Key} -> {resourcePair.Value}");
+        }
+        Console.WriteLine("------------------- End of Task 6 --------------------");
     }
 }
