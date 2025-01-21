@@ -69,5 +69,37 @@ class Program
             Console.WriteLine("Please enter a valid number.");
         }
         Console.WriteLine("------- End of Task 4 ----------");
+        
+        //Task 5: Sort an Array in Ascending Order
+        Console.WriteLine("------- Task 5 ----------");
+        string[] inputT5 = Console.ReadLine().Split();
+        
+        if (inputT5.Length == 0 || Array.Exists(inputT5, s => string.IsNullOrWhiteSpace(s)))
+        {
+            Console.WriteLine("Input contains only whitespace or invalid values.");
+            return;
+        }
+
+        int[] numbersT5;
+        try
+        {
+            numbersT5 = Array.ConvertAll(inputT5, int.Parse);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Input contains invalid numbers.");
+            return;
+        }
+        
+        int[] sortedNumbersT5 = methods.SortArray(numbersT5);
+        string arrayString = string.Empty;
+        foreach (int num in sortedNumbersT5)
+        {
+            arrayString = arrayString + num + ", ";
+        }
+        
+        Console.WriteLine($"[ {arrayString.Trim().TrimEnd(',')} ]");
+        
+        Console.WriteLine("------- End of Task 5 ----------");
     }
 }

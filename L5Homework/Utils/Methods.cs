@@ -66,6 +66,7 @@ public class Methods
         Console.WriteLine($"[ {numbersSequence.Trim().TrimEnd(',')} ]");
     }
 
+    //Task 4
     public bool PrimeNumber(int number)
     {
         if (number <= 1)
@@ -92,5 +93,12 @@ public class Methods
         }
 
         return true;
+    }
+    
+    //Task 5
+    public int[] SortArray(int[] array)
+    {
+        Array.Sort(array);
+        return array;
     }
 }
