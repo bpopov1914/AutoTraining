@@ -34,4 +34,35 @@ public class Methods
 
         return reverseString;
     }
+    
+    //Task 3
+    public void GenerateFibonacciSequence(int number)
+    {
+        int[] fibonacciSequence = new int[0];
+        int nextNumInSequence = 0;
+        int index = 0;
+        do
+        {
+            Array.Resize(ref fibonacciSequence, fibonacciSequence.Length + 1);
+            fibonacciSequence[index] = nextNumInSequence;
+            if (index == 0)
+            {
+                nextNumInSequence = fibonacciSequence[index] + 1;
+                index++;
+            }
+            else
+            {
+                nextNumInSequence = fibonacciSequence[index] + fibonacciSequence[index-1];
+                index++;
+            }
+        }while(fibonacciSequence.Length < number);
+
+        string numbersSequence = string.Empty;
+        foreach (int num in fibonacciSequence)
+        {
+            numbersSequence = numbersSequence + num + ", ";
+        }
+        
+        Console.WriteLine($"[ {numbersSequence.Trim().TrimEnd(',')} ]");
+    }
 }

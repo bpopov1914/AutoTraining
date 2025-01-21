@@ -39,5 +39,20 @@ class Program
         string reverseString = methods.ReverseString(originalString);
         Console.WriteLine($"Reverse String is: {reverseString} ");
         Console.WriteLine("------- End of Task 2 ----------");
+        
+        //Task 3: Generate Fibonacci Sequence
+        Console.WriteLine("------- Task 3 ----------");
+        Console.WriteLine("Please enter a number: ");
+        bool canBeParsed = int.TryParse(Console.ReadLine(), out int number);
+        if (canBeParsed)
+        {
+            methods.GenerateFibonacciSequence(number);
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid number.");
+        }
+        
+        Console.WriteLine("------- End of Task 3 ----------");
     }
 }
