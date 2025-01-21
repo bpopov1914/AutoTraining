@@ -195,20 +195,20 @@ class Program
         Console.WriteLine("Please enter resources and quantities: ");
         Dictionary<string, int> resourcesDictionary = new();
         
-        string command = "";
+        string input = "";
         
-        while ((command = Console.ReadLine()) != "stop")
+        while (( input = Console.ReadLine()) != "stop")
         {
             bool canBeParsed = int.TryParse(Console.ReadLine(), out int quantity);
             if (canBeParsed && (quantity > 0 && quantity <= 2000000000))
             {
-                if (resourcesDictionary.ContainsKey(command))
+                if (resourcesDictionary.ContainsKey(input))
                 {
-                       resourcesDictionary[command] += quantity;
+                       resourcesDictionary[input] += quantity;
                 }
                 else
                 {
-                    resourcesDictionary.Add(command, quantity); 
+                    resourcesDictionary.Add(input, quantity); 
                 }
                    
             }
