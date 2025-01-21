@@ -118,4 +118,21 @@ public class Methods
             array[i] *= factor;
         }
     }
+    
+    //Task 8
+    public bool DivideNumbers(int numerator, int denominator, out int quotient, out int remainder)
+    {
+        quotient = 0;
+        remainder = 0;
+
+        if (denominator == 0)
+        {
+            return false; 
+        }
+
+        quotient = numerator / denominator;
+        remainder = numerator % denominator;
+
+        return true;
+    }
 }

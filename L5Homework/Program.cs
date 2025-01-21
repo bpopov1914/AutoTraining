@@ -164,5 +164,32 @@ class Program
             Console.WriteLine("Please enter a valid number for the factor.");
         }
         Console.WriteLine("------- End of Task 7 ----------");
+        
+        //Task 8: Divide Two Numbers
+        Console.WriteLine("------- Task 8 ----------");
+        Console.WriteLine("Please input first number: ");
+        bool canParseNum1= int.TryParse(Console.ReadLine(), out int num1);
+        Console.WriteLine("Please input second number: ");
+        bool canParseNum2= int.TryParse(Console.ReadLine(), out int num2);
+        int quotient;
+        int remainder;
+        if (canParseNum1 && canParseNum2)
+        {
+            if (methods.DivideNumbers(num1, num2, out quotient, out remainder))
+            {
+                Console.WriteLine($"Quotient: {quotient}");
+                Console.WriteLine($"Remainder: {remainder}");
+            }
+            else
+            {
+                Console.WriteLine("Cannot divide by zero.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid number.");
+        }
+        
+        Console.WriteLine("------- End of Task 8 ----------");
     }
 }
