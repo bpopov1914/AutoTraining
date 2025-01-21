@@ -119,5 +119,50 @@ class Program
             Console.WriteLine("Please enter a valid number.");
         }
         Console.WriteLine("------- End of Task 6 ----------");
+        
+        //Task 7: Update Array Elements
+        Console.WriteLine("------- Task 7 ----------");
+        Console.WriteLine("Please input multiple numbers: ");
+        string[] inputT7 = Console.ReadLine().Split();
+        Console.WriteLine("Please input factor: ");
+        bool canParseFactor = int.TryParse(Console.ReadLine(), out int factor);
+        if (inputT7.Length == 0 || Array.Exists(inputT7, s => string.IsNullOrWhiteSpace(s)))
+        {
+            Console.WriteLine("Input contains only whitespace or invalid values.");
+            return;
+        }
+
+        int[] numbersT7;
+        try
+        {
+            numbersT7 = Array.ConvertAll(inputT7, int.Parse);
+            Console.WriteLine("Original array: ");
+            foreach (int element in numbersT7)
+            {
+                Console.Write(element + " ");
+            }
+            Console.WriteLine();
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Input contains invalid numbers.");
+            return;
+        }
+
+        if (canParseFactor)
+        {
+            methods.MultiplyArrayElements(ref numbersT7, factor);
+            Console.WriteLine("Array after multiplication: ");
+            foreach (int element in numbersT7)
+            {
+                Console.Write(element + " ");
+            }
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid number for the factor.");
+        }
+        Console.WriteLine("------- End of Task 7 ----------");
     }
 }

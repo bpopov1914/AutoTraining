@@ -103,11 +103,19 @@ public class Methods
     }
     
     //Task 6
-
     public void SwapNumbers(ref int firstNumber, ref int secondNumber)
     {
         int temp = firstNumber;
         firstNumber = secondNumber;
         secondNumber = temp;
+    }
+    
+    //Task 7
+    public void MultiplyArrayElements(ref int[] array, int factor)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] *= factor;
+        }
     }
 }
