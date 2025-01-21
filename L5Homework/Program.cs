@@ -191,5 +191,13 @@ class Program
         }
         
         Console.WriteLine("------- End of Task 8 ----------");
+        
+        //Task 9: Parse String to Number
+        Console.WriteLine("------- Task 9 ----------");
+        Console.WriteLine("Please input number: ");
+        string input1 = Console.ReadLine();
+        int result1 = methods.ConvertStringToInt(input1);
+        Console.WriteLine($"Input: {input1}, Converted: {result1}");
+        Console.WriteLine("------- End of Task 9 ----------");
     }
 }

@@ -135,4 +135,15 @@ public class Methods
 
         return true;
     }
+    
+    //Task 9
+    public int ConvertStringToInt(string input)
+    {
+        if (int.TryParse(input, out int result))
+        {
+            return result; 
+        }
+        
+        return 0; 
+    }
 }
