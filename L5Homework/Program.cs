@@ -101,5 +101,23 @@ class Program
         Console.WriteLine($"[ {arrayString.Trim().TrimEnd(',')} ]");
         
         Console.WriteLine("------- End of Task 5 ----------");
+        
+        //Task 6: Swap Two Numbers
+        Console.WriteLine("------- Task 6 ----------");
+        Console.WriteLine("Please input first number: ");
+        bool canParseFirstNum = int.TryParse(Console.ReadLine(), out int firstNumber);
+        Console.WriteLine("Please input second number: ");
+        bool canParseSecondNum = int.TryParse(Console.ReadLine(), out int secondNumber);
+        if (canParseFirstNum && canParseSecondNum)
+        {
+            Console.WriteLine($"First number: {firstNumber}, Second number: {secondNumber}");
+            methods.SwapNumbers(ref firstNumber, ref secondNumber);
+            Console.WriteLine($"First number: {firstNumber}, Second number: {secondNumber}");
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid number.");
+        }
+        Console.WriteLine("------- End of Task 6 ----------");
     }
 }

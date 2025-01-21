@@ -101,4 +101,13 @@ public class Methods
         Array.Sort(array);
         return array;
     }
+    
+    //Task 6
+
+    public void SwapNumbers(ref int firstNumber, ref int secondNumber)
+    {
+        int temp = firstNumber;
+        firstNumber = secondNumber;
+        secondNumber = temp;
+    }
 }
