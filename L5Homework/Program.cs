@@ -54,5 +54,20 @@ class Program
         }
         
         Console.WriteLine("------- End of Task 3 ----------");
+        
+        //Task 4: Check for Prime Numbers
+        Console.WriteLine("------- Task 4 ----------");
+        bool canParse = int.TryParse(Console.ReadLine(), out int numberInput);
+        bool isNumberPrime;
+        if (canParse)
+        {
+            isNumberPrime = methods.PrimeNumber(numberInput);
+            Console.WriteLine($"{isNumberPrime}");
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid number.");
+        }
+        Console.WriteLine("------- End of Task 4 ----------");
     }
 }
