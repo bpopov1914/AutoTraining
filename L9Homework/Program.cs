@@ -49,7 +49,21 @@ class Program
         }
         
         //Task 3
+        Product product1 = new Electronics("Phone", 899.99m);
+        Product product2 = new Electronics("Tablet", 499.99m);
+        Product product3 = new Clothing("Jacket", 59.99m);
+        Product product4 = new Clothing("Shirt", 29.99m);
         
-        
+        List<Product> products = new List<Product>();
+        products.Add(product1);
+        products.Add(product2);
+        products.Add(product3);
+        products.Add(product4);
+
+        foreach (var product in products)
+        {
+            product.DisplayInfo();
+            product.GetDiscountedPrice();
+        }
     }
 }
