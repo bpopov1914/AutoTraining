@@ -1,8 +1,8 @@
-﻿using Lecture10Exercise.Entities;
-using Lecture10Exercise.Entities.Library;
-using Lecture10Exercise.Entities.Members;
+﻿using L10Exercise.Entities;
+using L10Exercise.Entities.Library;
+using L10Exercise.Entities.Members;
 
-namespace Lecture10Exercise;
+namespace L10Exercise;
 
 class Lecture10Exercise
 {

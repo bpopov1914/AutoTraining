@@ -19,4 +19,28 @@
       <PackageReference Include="RestSharp" Version="112.1.1-alpha.0.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="L10Exercise\Entities\Book.cs">
+        <Link>Lecture10Exercise\Entities\Book.cs</Link>
+      </Compile>
+      <Compile Update="L10Exercise\Entities\Library\Library.cs">
+        <Link>Lecture10Exercise\Entities\Library\Library.cs</Link>
+      </Compile>
+      <Compile Update="L10Exercise\Entities\Library\LibraryManagement.cs">
+        <Link>Lecture10Exercise\Entities\Library\LibraryManagement.cs</Link>
+      </Compile>
+      <Compile Update="L10Exercise\Entities\Members\Member.cs">
+        <Link>Lecture10Exercise\Entities\Members\Member.cs</Link>
+      </Compile>
+      <Compile Update="L10Exercise\Entities\Members\StaffMember.cs">
+        <Link>Lecture10Exercise\Entities\Members\StaffMember.cs</Link>
+      </Compile>
+      <Compile Update="L10Exercise\Entities\Members\StudentMember.cs">
+        <Link>Lecture10Exercise\Entities\Members\StudentMember.cs</Link>
+      </Compile>
+      <Compile Update="L10Exercise\Lecture10Exercise.cs">
+        <Link>Lecture10Exercise\Lecture10Exercise.cs</Link>
+      </Compile>
+    </ItemGroup>
+
 </Project>

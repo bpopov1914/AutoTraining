@@ -1,6 +1,6 @@
-using Lecture10Exercise.Entities.Members;
+using L10Exercise.Entities.Members;
 
-namespace Lecture10Exercise.Entities.Library;
+namespace L10Exercise.Entities.Library;
 
 public abstract class LibraryManagement
 {

@@ -1,22 +1,25 @@
-namespace Lecture10Exercise.Entities.Members;
+using System.Runtime.CompilerServices;
 
-public class StaffMember : Member
+namespace L10Exercise.Entities.Members;
+
+public class StudentMember : Member
 {
-    public List<Book> StaffBooks = new ();
+    public List<Book> StudentBooks = new ();
     
-    public StaffMember(string name, int memberId) : base()
+    public StudentMember(string name, int memberId) :base()
     {
         MemberName = name;
         MemberId = memberId;
-        MembershipType = "Staff";
-        MaxBooksToBorrow = 10;
+        MembershipType = "Student";
+        MaxBooksToBorrow = 5;
     }
+    
 
     public override void BorrowBook(Book book)
     {
         if (MaxBooksToBorrow > BooksBorrowed)
         {
-            StaffBooks.Add(book);
+            StudentBooks.Add(book);
             BooksBorrowed++;
             Console.WriteLine($"{base.ToString()} borrowed the book \"{book.Title}\". Books borrowed: {BooksBorrowed}/{MaxBooksToBorrow}.");
         }
@@ -24,12 +27,11 @@ public class StaffMember : Member
         {
             Console.WriteLine($"{MemberName} has reached the limit of {MaxBooksToBorrow} borrowed from the library.");
         }
-        
     }
 
     public override void ReturnBook(Book book)
     {
-        StaffBooks.Remove(book);
+        StudentBooks.Remove(book);
     }
     
 }

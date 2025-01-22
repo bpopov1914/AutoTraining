@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L3HomeworkConsoleApp", "L3H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L6Exercise", "L6Exercise\L6Exercise.csproj", "{6F60333F-DE38-47E8-A70D-FD34F6FA85D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture10Exercise", "Lecture10Exercise\Lecture10Exercise.csproj", "{46F60115-7742-4D42-8DDA-D95FF75CE7D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L10Exercise", "L10Exercise\L10Exercise.csproj", "{46F60115-7742-4D42-8DDA-D95FF75CE7D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L11Homework", "L11Homework\L11Homework.csproj", "{FBB93AB6-4354-4ABF-B44E-4DD0B93AA7A3}"
 EndProject
