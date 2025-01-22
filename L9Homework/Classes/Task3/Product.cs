@@ -1,4 +1,4 @@
-namespace L9Homework.Classes;
+namespace L9Homework.Classes.Task3;
 
 public abstract class Product
 {

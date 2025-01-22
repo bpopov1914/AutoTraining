@@ -1,4 +1,4 @@
-namespace L9Homework.Classes;
+namespace L9Homework.Classes.Task1;
 
 public class Cat : Animal
 {

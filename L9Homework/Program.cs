@@ -1,4 +1,8 @@
 ﻿using L9Homework.Classes;
+using L9Homework.Classes.Task1;
+using L9Homework.Classes.Task2;
+using L9Homework.Classes.Task4;
+using L9Homework.Classes.Task3;
 using L9Homework.Interfaces;
 
 namespace L9Homework;
@@ -8,6 +12,7 @@ class Program
     static void Main(string[] args)
     {
         //Task 1
+        Console.WriteLine("------- Task 1 ----------");
         Animal cat = new Cat("Tom");
         Animal dog = new Dog("Spike");
         Animal catTwo = new Cat("Tom 2");
@@ -31,6 +36,7 @@ class Program
         
         
         //Task 2
+        Console.WriteLine("------- Task 2 ----------");
         Assignment assignment = new Assignment(6,5.50);
         Assignment assignmentTwo = new Assignment(6,4.80);
         Exam exam = new Exam(6,5.50);
@@ -49,6 +55,7 @@ class Program
         }
         
         //Task 3
+        Console.WriteLine("------- Task 3 ----------");
         Product product1 = new Electronics("Phone", 899.99m);
         Product product2 = new Electronics("Tablet", 499.99m);
         Product product3 = new Clothing("Jacket", 59.99m);
@@ -65,5 +72,33 @@ class Program
             product.DisplayInfo();
             product.GetDiscountedPrice();
         }
+        
+        
+        //Task 4
+        Console.WriteLine("------- Task 4 ----------");
+        Book book1 = new Book("The Witcher", "Andrzej Sapkowski");
+        Book book2 = new Book("The Lord Of The Rings", "J.R.R. Tolkien");
+        Magazine magazine1 = new Magazine("Top Gear", 101);
+        Magazine magazine2 = new Magazine("Auto Build", 202);
+
+        Library library = new Library();
+        library.AddItem(book1);
+        library.AddItem(book2);
+        library.AddItem(magazine1);
+        library.AddItem(magazine2);
+
+        library.BorrowItem("Boris", book1, DateTime.Now.AddDays(7)); 
+        library.BorrowItem("Boris", book2, DateTime.Now.AddDays(7)); 
+        library.BorrowItem("Boris", magazine1, DateTime.Now.AddDays(7)); 
+        library.BorrowItem("Boris", magazine2, DateTime.Now.AddDays(7)); 
+
+        library.BorrowItem("Daniel", magazine2, DateTime.Now.AddDays(7));
+        magazine2.ExtendDueDate(7);
+        library.ShowLibraryStatus();
+
+        library.ReturnItem("Boris", book1);
+        library.BorrowItem("Boris", magazine2, DateTime.Now.AddDays(7)); 
+
+        library.ShowLibraryStatus();
     }
 }

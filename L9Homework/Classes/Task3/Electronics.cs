@@ -1,4 +1,4 @@
-namespace L9Homework.Classes;
+namespace L9Homework.Classes.Task3;
 
 public class Electronics : Product
 {

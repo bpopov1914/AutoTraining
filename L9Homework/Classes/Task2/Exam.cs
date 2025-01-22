@@ -1,6 +1,6 @@
 using L9Homework.Interfaces;
 
-namespace L9Homework.Classes;
+namespace L9Homework.Classes.Task2;
 
 public class Exam : IGradeCalculator
 {
