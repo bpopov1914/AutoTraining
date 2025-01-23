@@ -18,8 +18,8 @@ public class JsonTests
                             "{\"name\":\"HR\",\"employees\":[{\"name\":\"Charlie\",\"age\":28,\"skills\":" +
                             "[\"Recruitment\",\"Communication\"]},{\"name\":\"Diana\",\"age\":32,\"skills\":" +
                             "[\"Onboarding\",\"Training\"]}]}]}";
-        JsonModel.JsonModel json = JsonConvert.DeserializeObject<JsonModel.JsonModel>(jsonString);
-        List<Department> departments = json.departments.ToList();
+        JsonModelT1 json = JsonConvert.DeserializeObject<JsonModelT1>(jsonString);
+        List<DepartmentT1> departments = json.departments.ToList();
         List<string> engineeringEmployees = new List<string>();
         List<string> hrEmployees = new List<string>();
         List<string> allSkills = new List<string>();

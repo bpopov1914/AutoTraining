@@ -1,6 +1,6 @@
 namespace L14Homework.JsonModel;
 
-public class Employee
+public class EmployeeT1
 {
     public string name { get; set; }
     public int age { get; set; }
