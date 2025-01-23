@@ -41,6 +41,9 @@
       <Compile Update="L10Exercise\Lecture10Exercise.cs">
         <Link>Lecture10Exercise\Lecture10Exercise.cs</Link>
       </Compile>
+      <Compile Update="L14Homework\JsonTests.cs">
+        <Link>TestProject1\JsonTests.cs</Link>
+      </Compile>
     </ItemGroup>
 
 </Project>
