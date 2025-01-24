@@ -208,4 +208,33 @@ public class JsonTests
         string modifiedJsonObject = JsonConvert.SerializeObject(jObject, Formatting.Indented);
         Console.WriteLine($"Modified jsonObject:\n {modifiedJsonObject}");
     }
+
+    [Test]
+    public void ComplexJPathFiltering()
+    {
+        string jsonString = "{\"orders\":[{\"orderId\":1,\"customer\":\"John Doe\",\"items\":[" +
+                            "{\"product\":\"Laptop\",\"price\":1200},{\"product\":\"Mouse\",\"price\":25}]}," +
+                            "{\"orderId\":2,\"customer\":\"Jane Smith\",\"items\":[{\"product\":\"Phone\",\"price\":800}," +
+                            "{\"product\":\"Headphones\",\"price\":100}]}]}";
+        
+        JObject jObject = JObject.Parse(jsonString);
+        
+        var customers = jObject.SelectTokens("$.orders[*].customer").ToList();
+        Console.WriteLine("Customers:");
+        foreach (var customer in customers)
+        {
+            Console.WriteLine(customer.ToString());
+        }
+        
+        var expensiveProducts = jObject.SelectTokens("$.orders[*].items[?(@.price > 100)].product").ToList();
+        Console.WriteLine("\nProducts with price greater than 100:");
+        foreach (var product in expensiveProducts)
+        {
+            Console.WriteLine(product.ToString());
+        }
+        
+        var firstOrderItems = jObject.SelectTokens("$.orders[0].items[*].price").ToList();
+        decimal totalPrice = firstOrderItems.Sum(item => (decimal)item);
+        Console.WriteLine($"\nTotal price of items in the first order: {totalPrice}");
+    }
 }
