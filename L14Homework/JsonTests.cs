@@ -1,6 +1,8 @@
 using L14Homework.JsonModel;
 using L14Homework.ModelsT2;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 namespace L14Homework;
 
 public class JsonTests
@@ -154,5 +156,56 @@ public class JsonTests
             Console.WriteLine($"Name: {employee.Name}, City: {employee.Employer.Location.City}");
         }
 
+    }
+
+    [Test]
+    public void DynamicJsonHandling()
+    {
+        string jsonString = "{\"store\":{\"products\":[{\"id\":1,\"name\":\"Laptop\",\"price\":1200,\"" +
+                            "category\":\"Electronics\",\"stock\":10},{\"id\":2,\"name\":\"Tablet\",\"price\":800," +
+                            "\"category\":\"Electronics\",\"stock\":0},{\"id\":3,\"name\":\"Notebook\",\"price\":15," +
+                            "\"category\":\"Stationery\",\"stock\":50},{\"id\":4,\"name\":\"Pen\",\"price\":2," +
+                            "\"category\":\"Stationery\",\"stock\":100}],\"lastUpdated\":\"2025-01-01T10:00:00Z\"}}";
+        
+        JObject jObject = JObject.Parse(jsonString);
+        
+        JObject newProduct = new JObject
+        {
+            { "id", 5 },
+            { "name", "Headphones" },
+            { "price", 150 },
+            { "category", "Electronics" },
+            { "stock", 25 }
+        };
+        
+        JArray productsArray = (JArray)jObject["store"]["products"];
+        productsArray.Add(newProduct);
+        
+        foreach (JObject product in productsArray)
+        {
+            if (product["category"].ToString() == "Electronics" && (int)product["stock"] == 0)
+            {
+                product["stock"] = 50;
+            }
+        }
+        
+        Console.WriteLine(jObject.ToString());
+        
+        int totalStock = productsArray.Sum(product => (int)product["stock"]);
+
+        jObject["store"]["totalStock"] = totalStock;
+
+        Console.WriteLine($"After adding total stock:\n {jObject.ToString()}");
+        
+        var productsToRemove = productsArray.Where(product => (int)product["price"] < 10).ToList();
+        foreach (var product in productsToRemove)
+        {
+            productsArray.Remove(product);
+        }
+
+        Console.WriteLine($"After removal:\n {jObject.ToString()}");
+        
+        string modifiedJsonObject = JsonConvert.SerializeObject(jObject, Formatting.Indented);
+        Console.WriteLine($"Modified jsonObject:\n {modifiedJsonObject}");
     }
 }
