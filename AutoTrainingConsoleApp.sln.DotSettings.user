@@ -6,6 +6,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b283adbd_002Dc00a_002D4d79_002Da1b6_002Dbea44350c285/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::12064E09-A4CF-4936-89B7-C60508C05E5F::net8.0::L14Homework.JsonTests.ParseAndExtractData&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::12064E09-A4CF-4936-89B7-C60508C05E5F::net8.0::L14Homework.JsonTests.ComplexObjectSerializationAndDeserialization&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	

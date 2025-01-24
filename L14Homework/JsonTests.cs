@@ -1,4 +1,5 @@
 using L14Homework.JsonModel;
+using L14Homework.ModelsT2;
 using Newtonsoft.Json;
 namespace L14Homework;
 
@@ -81,5 +82,59 @@ public class JsonTests
         }
         
 
+    }
+
+    [Test]
+    public void ComplexObjectSerializationAndDeserialization()
+    {
+        Address address1 = new Address();
+        address1.City = "New York";
+        address1.Street = "Some New York Street";
+        Address address2 = new Address();
+        address2.City = "Los Angeles";
+        address2.Street = "Some Los Angeles Street";
+        Address address3 = new Address();
+        address3.City = "Minneapolis";
+        address3.Street = "Some Minneapolis Street";
+        
+        Company company1 = new Company();
+        company1.Name = "Company 1";
+        company1.Location = address1;
+        Company company2 = new Company();
+        company2.Name = "Company 2";
+        company2.Location = address2;
+        Company company3 = new Company();
+        company3.Name = "Company 3";
+        company3.Location = address3;
+        
+        Employee employee1 = new Employee();
+        employee1.Id = 1;
+        employee1.Name = "Employee 1";
+        employee1.Employer = company1;
+        employee1.Skills = new List<string>(){"C#", "Java"};
+        Employee employee2 = new Employee();
+        employee2.Id = 2;
+        employee2.Name = "Employee 2";
+        employee2.Employer = company2;
+        employee2.Skills = new List<string>(){"SQL", "Python"};
+        Employee employee3 = new Employee();
+        employee3.Id = 3;
+        employee3.Name = "Employee 3";
+        employee3.Employer = company3;
+        employee3.Skills = new List<string>(){"AWS", "Azure"};
+        
+        List<Employee> employees = new List<Employee>();
+        employees.Add(employee1);
+        employees.Add(employee2);
+        employees.Add(employee3);
+        
+        string jsonString = JsonConvert.SerializeObject(employees, Formatting.Indented);
+        
+        List<Employee> newEmployees = JsonConvert.DeserializeObject<List<Employee>>(jsonString);
+
+        foreach (var employee in newEmployees)
+        {
+            Console.WriteLine($"Name: {employee.Name}, Company: {employee.Employer.Name}, Location: {employee.Employer.Location.City}, {employee.Employer.Location.Street}, Skills: {string.Join(", ", employee.Skills)}");
+        }
     }
 }
