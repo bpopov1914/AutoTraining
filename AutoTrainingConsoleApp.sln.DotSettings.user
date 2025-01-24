@@ -9,6 +9,7 @@
     &lt;TestId&gt;NUnit3x::12064E09-A4CF-4936-89B7-C60508C05E5F::net8.0::L14Homework.JsonTests.ComplexObjectSerializationAndDeserialization&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::12064E09-A4CF-4936-89B7-C60508C05E5F::net8.0::L14Homework.JsonTests.DynamicJsonHandling&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::12064E09-A4CF-4936-89B7-C60508C05E5F::net8.0::L14Homework.JsonTests.ComplexJPathFiltering&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::12064E09-A4CF-4936-89B7-C60508C05E5F::net8.0::L14Homework.JsonTests.AdvancedSerializationWithCustomConverters&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	
