@@ -122,11 +122,17 @@ public class JsonTests
         employee3.Name = "Employee 3";
         employee3.Employer = company3;
         employee3.Skills = new List<string>(){"AWS", "Azure"};
+        Employee employee4 = new Employee();
+        employee4.Id = 4;
+        employee4.Name = "Employee 4";
+        employee4.Employer = company3;
+        employee4.Skills = new List<string>(){"C++", "PHP"};
         
         List<Employee> employees = new List<Employee>();
         employees.Add(employee1);
         employees.Add(employee2);
         employees.Add(employee3);
+        employees.Add(employee4);
         
         string jsonString = JsonConvert.SerializeObject(employees, Formatting.Indented);
         
@@ -136,5 +142,17 @@ public class JsonTests
         {
             Console.WriteLine($"Name: {employee.Name}, Company: {employee.Employer.Name}, Location: {employee.Employer.Location.City}, {employee.Employer.Location.Street}, Skills: {string.Join(", ", employee.Skills)}");
         }
+        
+        IEnumerable<Employee> employeeQuery =
+            from employee in newEmployees
+            where employee.Employer.Location.City == "Minneapolis"
+            select employee;
+
+        Console.WriteLine("\nEmployees from Minneapolis: ");
+        foreach (var employee in employeeQuery)
+        {
+            Console.WriteLine($"Name: {employee.Name}, City: {employee.Employer.Location.City}");
+        }
+
     }
 }
