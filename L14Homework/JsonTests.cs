@@ -1,5 +1,6 @@
 using L14Homework.JsonModel;
 using L14Homework.ModelsT2;
+using L14Homework.T5Class;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -236,5 +237,30 @@ public class JsonTests
         var firstOrderItems = jObject.SelectTokens("$.orders[0].items[*].price").ToList();
         decimal totalPrice = firstOrderItems.Sum(item => (decimal)item);
         Console.WriteLine($"\nTotal price of items in the first order: {totalPrice}");
+    }
+
+    [Test]
+    public void AdvancedSerializationWithCustomConverters()
+    {
+        var events = new List<Event>
+        {
+            new Event { Date = new DateTime(2025, 1, 24), Name = "New Year's Conference" },
+            new Event { Date = new DateTime(2025, 3, 15), Name = "Tech Expo" },
+            new Event { Date = new DateTime(2025, 5, 10), Name = "Health & Wellness Seminar" }
+        };
+
+        var settings = new JsonSerializerSettings();
+        settings.Converters.Add(new DateTimeConverter());
+        
+        string json = JsonConvert.SerializeObject(events, settings);
+        Console.WriteLine($"Serialized JSON:\n{json}");
+
+        var deserializedEvents = JsonConvert.DeserializeObject<List<Event>>(json, settings);
+
+        Console.WriteLine("\nDeserialized Events:");
+        foreach (var eventObj in deserializedEvents)
+        {
+            Console.WriteLine($"{eventObj.Name} - {eventObj.Date:yyyy-MM-dd}");
+        }
     }
 }
